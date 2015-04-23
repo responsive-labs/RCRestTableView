@@ -10,7 +10,6 @@
 #import "RCRestTableView.h"
 
 @interface RCExampleViewController ()
-@property (nonatomic,strong) NSDictionary *dictionary;
 @end
 
 @implementation RCExampleViewController
@@ -27,7 +26,10 @@
 #pragma mark <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	if (indexPath.section == 0 && indexPath.row == 0){
-		RCRestTableView *controller = [[RCRestTableView alloc] initWithDictionary:self.dictionary];
+		NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"RCRestTableView" ofType:@"json"];
+		NSString *json = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:NULL];
+
+		RCRestTableView *controller = [[RCRestTableView alloc] initWithJsonString:json];
 		[self.navigationController pushViewController:controller animated:YES];
 	}
 }
