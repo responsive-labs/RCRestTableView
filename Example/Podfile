@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'RCRestTableView', :exclusive => true do
+  pod "RCRestTableView", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "RCRestTableView", :path => "../"
+
+  
+end
