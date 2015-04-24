@@ -45,7 +45,11 @@
 	NSString *type = [row objectForKey:kRCRestKeyCellType];
 	RCRestTableViewCellViewModel *cellViewModel;
 	
-	
+	if ([type isEqualToString:@"UILabel"]){
+		
+	}else{
+		
+	}
 	
 	return cellViewModel;
 	

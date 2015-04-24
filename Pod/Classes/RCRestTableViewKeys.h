@@ -13,3 +13,4 @@ static NSString * const kRCRestKeySectionHeader = @"section_header";
 static NSString * const kRCRestKeySectionFooter = @"section_footer";
 
 static NSString * const kRCRestKeyCellType = @"type";
+static NSString * const kRCRestKeyCellTitle = @"title";

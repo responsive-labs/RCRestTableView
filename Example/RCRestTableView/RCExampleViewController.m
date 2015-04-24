@@ -28,7 +28,6 @@
 	if (indexPath.section == 0 && indexPath.row == 0){
 		NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"RCRestTableView" ofType:@"json"];
 		NSString *json = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:NULL];
-
 		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithJsonString:json];
 		[self.navigationController pushViewController:controller animated:YES];
 	}

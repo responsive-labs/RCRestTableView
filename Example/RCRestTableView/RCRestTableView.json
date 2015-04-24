@@ -7,41 +7,8 @@
         {
           "type" : "UILabel",
           "title" : "Label",
-          "UITableViewCellAccessoryType" : "UITableViewCellAccessoryNone",
-          "UITableViewCellSelectionStyle" : "UITableViewCellSelectionStyleNone",
+          "AccessoryType" : 0,
           "UILabel.text" : "label text"
-        },
-        {
-          "type" : "UITextField",
-          "title" : "Text Field",
-          "UITableViewCellAccessoryType" : "UITableViewCellAccessoryNone",
-          "UITableViewCellSelectionStyle" : "UITableViewCellSelectionStyleNone",
-          "UITextField.text" : "label text",
-          "UITextField.placeholder" : "insert text"
-        },
-        {
-          "type" : "UITextView",
-          "UITableViewCellAccessoryType" : "UITableViewCellAccessoryNone",
-          "UITableViewCellSelectionStyle" : "UITableViewCellSelectionStyleNone",
-          "UITextField.text" : "label text",
-          "UITextField.placeholder" : "insert text"
-        },
-        {
-          "type" : "Multivalue",
-          "UITableViewCellAccessoryType" : "UITableViewCellAccessoryDisclosureIndicator",
-          "UITableViewCellSelectionStyle" : "UITableViewCellSelectionStyleGray",
-          "values" : [
-            "item 1",
-            "item 2",
-            "item 3"
-          ],
-          "selected" : "item 2"
-        },
-        {
-          "type" : "UIImagePicker",
-          "UITableViewCellAccessoryType" : "UITableViewCellAccessoryDisclosureIndicator",
-          "UITableViewCellSelectionStyle" : "UITableViewCellSelectionStyleGray",
-          "imagePath" : "link (http:// or file://)"
         }
       ]
     }
