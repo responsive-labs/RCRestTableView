@@ -1,32 +1,28 @@
 //
-//  RCRestTableView.m
+//  RCRestTableViewController.m
 //  Pods
 //
-//  Created by Luca Serpico on 23/04/2015.
+//  Created by Luca Serpico on 24/04/2015.
 //
 //
 
+#import "RCRestTableViewController.h"
 #import "RCRestTableView.h"
-#import "RCRestTableViewViewModel.h"
-#import "RCTableViewBindingHelper.h"
 
-@interface RCRestTableView ()
-@property (nonatomic,strong) RCTableViewBindingHelper *bindingHelper;
-@property (nonatomic,strong) RCRestTableViewViewModel *viewModel;
+@interface RCRestTableViewController ()
+
 @end
 
-@implementation RCRestTableView
-
+@implementation RCRestTableViewController
 
 - (instancetype)initWithJsonString:(NSString*)json{
-	self = [super initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+	self = [super initWithNibName:nil bundle:nil]; // Retrieve an empty table view
 	if (self) {
-		self.viewModel = [[RCRestTableViewViewModel alloc] initWithJsonString:json];
-		self.bindingHelper = [RCTableViewBindingHelper bindingHelperForTableView:self viewModel:self.viewModel];
+		RCRestTableView *tableView = [[RCRestTableView alloc] initWithJsonString:json];
+		self.tableView = tableView;
 	}
 	return self;
 }
-
 
 - (instancetype)init{
 	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
@@ -40,9 +36,12 @@
 	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
 	return nil;
 }
-- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
+- (instancetype) initWithStyle:(UITableViewStyle)style{
 	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
 	return nil;
 }
-
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
+	return nil;
+}
 @end

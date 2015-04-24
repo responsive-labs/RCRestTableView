@@ -7,7 +7,7 @@
 //
 
 #import "RCExampleViewController.h"
-#import "RCRestTableView.h"
+#import "RCRestTableViewController.h"
 
 @interface RCExampleViewController ()
 @end
@@ -29,7 +29,7 @@
 		NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"RCRestTableView" ofType:@"json"];
 		NSString *json = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:NULL];
 
-		RCRestTableView *controller = [[RCRestTableView alloc] initWithJsonString:json];
+		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithJsonString:json];
 		[self.navigationController pushViewController:controller animated:YES];
 	}
 }

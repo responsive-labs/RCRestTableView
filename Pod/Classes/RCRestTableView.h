@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCRestTableView : UITableViewController
+@interface RCRestTableView : UITableView
 
-- (instancetype)initWithJsonString:(NSString*)string;
+- (instancetype)initWithJsonString:(NSString*)json;
 
 @end

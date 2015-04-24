@@ -1,8 +1,16 @@
 PODS:
   - RCRestTableView (0.1.0)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
 
 DEPENDENCIES:
   - RCRestTableView (from `../`)
+  - ReactiveCocoa
 
 EXTERNAL SOURCES:
   RCRestTableView:
@@ -10,5 +18,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   RCRestTableView: 539f52781568a80352266f5e8f65fca1586f088d
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.36.4
