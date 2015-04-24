@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RCTableViewCellViewModel : NSObject
+@interface RCRestTableViewCellViewModel : NSObject
 
 @end

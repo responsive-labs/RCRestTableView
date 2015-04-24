@@ -6,8 +6,8 @@
 //
 //
 
-#import "RCTableViewCellViewModel.h"
+#import "RCRestTableViewCellViewModel.h"
 
-@implementation RCTableViewCellViewModel
+@implementation RCRestTableViewCellViewModel
 
 @end
