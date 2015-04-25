@@ -39,8 +39,8 @@
 			if ([pathComponents count] > 2) continue; // Currently we support only the first node
 			if ([pathComponents count] == 1) {
 				// Is a cell property
-				NSString *selectorString = [NSString stringWithFormat:@"set%@",[key uppercaseFirstLetter]];
-				if ([UITableViewCell resolveClassMethod:NSSelectorFromString(selectorString)]) {
+				NSString *selectorString = [NSString stringWithFormat:@"set%@:",[key uppercaseFirstLetter]];
+				if ([[UITableViewCell class] instancesRespondToSelector:NSSelectorFromString(selectorString)]) {
 					[self.cellProperties setValue:[mutableStructure objectForKey:key] forKey:selectorString];
 				}
 			}else if([pathComponents count] == 1 && [pathComponents[0] isEqualToString:self.type]){

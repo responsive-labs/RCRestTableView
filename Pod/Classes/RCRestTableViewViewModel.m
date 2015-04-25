@@ -46,7 +46,7 @@
 	RCRestTableViewCellViewModel *cellViewModel;
 	
 	if ([type isEqualToString:@"UILabel"]){
-		
+		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row];
 	}else{
 		
 	}

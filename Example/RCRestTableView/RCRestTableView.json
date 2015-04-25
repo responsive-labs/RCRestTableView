@@ -1,16 +1,46 @@
 {
-  "sections": [
-    {
-      "section_header" : "section header name",
-      "section_footer" : "section footer name",
-      "rows" : [
-        {
-          "type" : "UILabel",
-          "title" : "Label",
-          "AccessoryType" : 0,
-          "UILabel.text" : "label text"
-        }
-      ]
-    }
-  ]
+	"sections": [
+		{
+	 		"section_header" : "section header name",
+	 		"section_footer" : "section footer name",
+	 		"rows" : [
+			   {
+			   	"type" : "UILabel",
+			   	"title" : "Label",
+			   	"AccessoryType" : 0,
+			   	"UILabel.text" : "label text"
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "Label",
+				   "AccessoryType" :	1,
+				   "UILabel.text" : "label text"
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "Label",
+				   "AccessoryType" :	2,
+				   "UILabel.text" : "label text"
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "Label",
+				   "AccessoryType" :	3,
+				   "UILabel.text" : "label text"
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "Label",
+				   "AccessoryType" :	4,
+				   "UILabel.text" : "label text"
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "Label",
+				   "AccessoryType" :	5,
+				   "UILabel.text" : "label text"
+			   }
+			]
+		}
+	]
 }

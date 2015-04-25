@@ -12,7 +12,7 @@
 
 - (NSString*)uppercaseFirstLetter{
 	NSString *firstChar = [self substringToIndex:1];
-	return [firstChar stringByAppendingString:[self substringToIndex:1]];
+	return [firstChar stringByAppendingString:[self substringFromIndex:1]];
 }
 
 @end

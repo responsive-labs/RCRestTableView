@@ -10,6 +10,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCReactiveView.h"
 #import "RCRestTableViewViewModel.h"
+#import "RCRestTableViewCell.h"
 
 @interface RCTableViewBindingHelper() <UITableViewDataSource, UITableViewDelegate>
 
@@ -30,6 +31,8 @@
 		self.viewModel = viewModel;
 		
 		self.tableView.rowHeight = 44.0f; // Default UITableViewCellSize
+		
+		[self.tableView registerClass:[RCRestTableViewCell class] forCellReuseIdentifier:[RCRestTableViewCell cellIdentifier]];
 		
 		_tableView.dataSource = self;
 		_tableView.delegate = self;
@@ -56,16 +59,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cel = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-	cel.textLabel.text = @"test";
-	return cel;
-//	id<RCReactiveView> cell = [tableView dequeueReusableCellWithIdentifier:@""];
-//	if ([cell respondsToSelector:@selector(bindViewModel:)]) {
-//		[cell bindViewModel:self.data[indexPath.row]];
-//	} else {
-//		[NSException raise:@"The cells supplied to the RCTableViewBindingHelper must implement the protocol RCReactiveView" format:@"missing method `bindViewModel:`"];
-//	}
-//	return (UITableViewCell *)cell;
+	RCRestTableViewCellViewModel *cellViewModel = [self.viewModel viewModelForRowAtIndexPath:indexPath];
+	
+	RCRestTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[RCRestTableViewCell cellIdentifier] forIndexPath:indexPath];
+	
+	[cell bindViewModel:cellViewModel];
+	
+	return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

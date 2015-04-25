@@ -8,6 +8,7 @@
 
 #import "RCExampleViewController.h"
 #import "RCRestTableViewController.h"
+#import <objc/message.h>
 
 @interface RCExampleViewController ()
 @end
