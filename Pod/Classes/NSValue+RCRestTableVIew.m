@@ -112,3 +112,17 @@
 }
 
 @end
+
+@implementation NSString (RCRestTableVIew)
+
+- (void)setAsArgumentForInvocation:(NSInvocation *)invocation atIndex:(NSUInteger)index
+{
+	const char *argumentType = [[invocation methodSignature] getArgumentTypeAtIndex:index];
+	
+	if (CStringEquals(argumentType, @encode(id))) {
+		id converted = self;
+		[invocation setArgument:&converted atIndex:index];
+	}
+}
+
+@end

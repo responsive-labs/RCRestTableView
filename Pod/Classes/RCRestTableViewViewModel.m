@@ -11,6 +11,7 @@
 #import "RCRestTableStructure.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCRestTableViewCellViewModel.h"
+#import "RCRestTableViewCellAvailable.h"
 
 @interface RCRestTableViewViewModel()
 @property (nonatomic,strong) RCRestTableStructure *structure;
@@ -46,7 +47,7 @@
 	RCRestTableViewCellViewModel *cellViewModel;
 	
 	if ([type isEqualToString:@"UILabel"]){
-		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row];
+		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUILabelCell cellIdentifier]];
 	}else{
 		
 	}

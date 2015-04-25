@@ -10,7 +10,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCReactiveView.h"
 #import "RCRestTableViewViewModel.h"
-#import "RCRestTableViewCell.h"
+#import "RCRestTableViewCellAvailable.h"
 
 @interface RCTableViewBindingHelper() <UITableViewDataSource, UITableViewDelegate>
 
@@ -33,6 +33,7 @@
 		self.tableView.rowHeight = 44.0f; // Default UITableViewCellSize
 		
 		[self.tableView registerClass:[RCRestTableViewCell class] forCellReuseIdentifier:[RCRestTableViewCell cellIdentifier]];
+		[self.tableView registerClass:[RCUILabelCell class] forCellReuseIdentifier:[RCUILabelCell cellIdentifier]];
 		
 		_tableView.dataSource = self;
 		_tableView.delegate = self;
@@ -60,8 +61,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	RCRestTableViewCellViewModel *cellViewModel = [self.viewModel viewModelForRowAtIndexPath:indexPath];
+	NSString *cellIdentifier = cellViewModel.cellIdentifier;
 	
-	RCRestTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[RCRestTableViewCell cellIdentifier] forIndexPath:indexPath];
+	RCRestTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 	
 	[cell bindViewModel:cellViewModel];
 	

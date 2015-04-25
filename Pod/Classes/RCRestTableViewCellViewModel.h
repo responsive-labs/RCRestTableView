@@ -23,9 +23,10 @@
 
 @property (nonatomic,readonly) NSString *type;
 @property (nonatomic,readonly) NSString *title;
+@property (nonatomic,readonly) NSString *cellIdentifier;
 @property (nonatomic,readonly) NSDictionary *cellProperties;
 @property (nonatomic,readonly) NSDictionary *typeProperties;
 	
-- (instancetype)initWithStructure:(NSDictionary*)structure;
+- (instancetype)initWithStructure:(NSDictionary*)structure identifier:(NSString*)identifier;
 
 @end
