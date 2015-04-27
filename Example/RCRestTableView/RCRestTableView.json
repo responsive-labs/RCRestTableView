@@ -4,13 +4,19 @@
 	 		"section_header" : "section header name",
 	 		"section_footer" : "section footer name",
 	 		"rows" : [
-			   {
-			   	"type" : "UIImageView",
-			   	"title" : "Image",
-			   	"AccessoryType" : 0,
-			   	"value" : "2emptyImage.png",
-			   },
-			   {
+				{
+			   		"type" : "UIImageView",
+			   		"title" : "Image",
+			   		"AccessoryType" : 0,
+			   		"value" : "emptyImage",
+			   	},
+				{
+			   		"type" : "UIImageView",
+			   		"title" : "Image",
+			   		"AccessoryType" : 0,
+			   		"value" : "",
+				},
+			   	{
 				   "type" : "UILabel",
 				   "title" : "Label",
 				   "AccessoryType" :	1,

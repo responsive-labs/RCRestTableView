@@ -22,11 +22,9 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
 	self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
 	if (self) {
-		self.detailTextLabel.text = @" ";// Set an empty text to keep right margin
 		self.detailTextLabel.hidden = YES;
 		self.customImageView = [[UIImageView alloc] init];
 		[self.customImageView setUserInteractionEnabled:YES];
-		self.customImageView.translatesAutoresizingMaskIntoConstraints = NO;
 		[self.contentView addSubview:self.customImageView];
 		[self setNeedsUpdateConstraints];
 		[self bindReactiveSignals];
@@ -89,10 +87,24 @@
 }
 
 - (void)updateConstraints{
+	self.customImageView.translatesAutoresizingMaskIntoConstraints = NO;
+	self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
+	
+	[self.textLabel setContentCompressionResistancePriority:501 forAxis:UILayoutConstraintAxisHorizontal];
+	[self.customImageView setContentCompressionResistancePriority:500 forAxis:UILayoutConstraintAxisHorizontal];
+	[self.textLabel setContentHuggingPriority:501 forAxis:UILayoutConstraintAxisHorizontal];
+	[self.customImageView setContentHuggingPriority:500 forAxis:UILayoutConstraintAxisHorizontal];
+	
+	// TextLabel contraints
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1 constant:16]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:9]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-8]];
+	
+	// ImageView constraints
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.textLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:8]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:8]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-8]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.detailTextLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-16]];
 	[super updateConstraints];
 }
 
