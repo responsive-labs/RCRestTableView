@@ -9,3 +9,4 @@
 #import "RCRestTableViewCell.h"
 #import "RCUILabelCell.h"
 #import "RCUITextFieldCell.h"
+#import "RCUIImageViewCell.h"

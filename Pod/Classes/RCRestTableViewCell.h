@@ -16,7 +16,9 @@
 
 @interface RCRestTableViewCell : UITableViewCell <RCReactiveView>
 
+
 + (NSString*)cellIdentifier;
+- (UITableView*)tableView;
 
 - (void)bindViewModel:(RCRestTableViewCellViewModel*)viewModel NS_REQUIRES_SUPER;
 

@@ -53,8 +53,10 @@
 	
 	if ([type isEqualToString:@"UILabel"]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUILabelCell cellIdentifier]];
-	}else{
+	}else if ([type isEqualToString:@"UITextField"]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUITextFieldCell cellIdentifier]];
+	}else if ([type isEqualToString:@"UIImageView"]){
+		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUIImageViewCell cellIdentifier]];
 	}
 	
 	[self.lazyViewModels setObject:cellViewModel forKey:indexPath];

@@ -33,6 +33,7 @@
 		NSMutableDictionary *mutableStructure = [[NSMutableDictionary alloc] initWithDictionary:structure];
 		[mutableStructure removeObjectForKey:kRCRestKeyCellType];
 		[mutableStructure removeObjectForKey:kRCRestKeyCellTitle];
+		[mutableStructure removeObjectForKey:kRCRestKeyCellValue];
 		
 		self.cellProperties = [NSMutableDictionary new];
 		self.typeProperties = [NSMutableDictionary new];

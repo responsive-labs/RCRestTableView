@@ -5,10 +5,10 @@
 	 		"section_footer" : "section footer name",
 	 		"rows" : [
 			   {
-			   	"type" : "UILabel",
-			   	"title" : "Label",
+			   	"type" : "UIImageView",
+			   	"title" : "Image",
 			   	"AccessoryType" : 0,
-			   	"value" : "label text 1"
+			   	"value" : "2emptyImage.png",
 			   },
 			   {
 				   "type" : "UILabel",

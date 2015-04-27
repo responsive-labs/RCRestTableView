@@ -9,6 +9,10 @@
 #import "RCRestTableViewCell.h"
 #import "NSValue+RCRestTableVIew.h"
 
+@interface RCRestTableViewCell()
+@property (nonatomic,weak) UITableView *tableView;
+@end
+
 @implementation RCRestTableViewCell
 
 + (NSString*)cellIdentifier{
@@ -28,6 +32,17 @@
 	}
 }
 
-
+- (UITableView*)tableView{
+	if (!_tableView){
+		id view = [self superview];
+		
+		while (view && [view isKindOfClass:[UITableView class]] == NO) {
+			view = [view superview];
+		}
+		
+		_tableView = (UITableView *)view;
+	}
+	return _tableView;
+}
 
 @end

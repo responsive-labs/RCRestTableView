@@ -23,7 +23,7 @@
 
 @property (nonatomic,readonly) NSString *type;
 @property (nonatomic,readonly) NSString *title;
-@property (nonatomic) NSString *value;
+@property (nonatomic) id value;
 @property (nonatomic,readonly) NSString *cellIdentifier;
 @property (nonatomic,readonly) NSDictionary *cellProperties;
 @property (nonatomic,readonly) NSDictionary *typeProperties;
