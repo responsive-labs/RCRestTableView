@@ -28,6 +28,7 @@
 		self.type = [structure objectForKey:kRCRestKeyCellType];
 		self.title = [structure objectForKey:kRCRestKeyCellTitle];
 		self.cellIdentifier = identifier;
+		self.value = [structure objectForKey:kRCRestKeyCellValue];
 		
 		NSMutableDictionary *mutableStructure = [[NSMutableDictionary alloc] initWithDictionary:structure];
 		[mutableStructure removeObjectForKey:kRCRestKeyCellType];

@@ -8,37 +8,37 @@
 			   	"type" : "UILabel",
 			   	"title" : "Label",
 			   	"AccessoryType" : 0,
-			   	"UILabel.text" : "label text 1"
+			   	"value" : "label text 1"
 			   },
 			   {
 				   "type" : "UILabel",
 				   "title" : "Label",
 				   "AccessoryType" :	1,
-				   "UILabel.text" : "label text 2"
+				   "value" : "label text 2"
 			   },
 			   {
 				   "type" : "UILabel",
 				   "title" : "Label",
 				   "AccessoryType" :	2,
-				   "UILabel.text" : "label text 3"
+				   "value" : "label text 3"
 			   },
 			   {
 				   "type" : "UILabel",
 				   "title" : "Label",
 				   "AccessoryType" :	3,
-				   "UILabel.text" : "label text 4"
+				   "value" : "label text 4"
 			   },
 			   {
 				   "type" : "UILabel",
 				   "title" : "Label",
 				   "AccessoryType" :	4,
-				   "UILabel.text" : "label text 5"
+				   "value" : "label text 5"
 			   },
 			   {
 				   "type" : "UILabel",
 				   "title" : "Label",
 				   "AccessoryType" :	5,
-				   "UILabel.text" : "label text 6"
+				   "value" : "text 5",
 			   }
 			]
 		}

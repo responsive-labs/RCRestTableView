@@ -22,6 +22,7 @@
 - (void)bindViewModel:(RCRestTableViewCellViewModel*)viewModel{
 	[super bindViewModel:viewModel];
 	self.textLabel.text = viewModel.title;
+	self.detailTextLabel.text = viewModel.value;
 	
 	for (NSString *selectorString in [viewModel.typeProperties allKeys]) {
 		SEL selector = NSSelectorFromString(selectorString);
