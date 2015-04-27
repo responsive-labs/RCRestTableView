@@ -17,10 +17,12 @@
 				   "value" : "label text 2"
 			   },
 			   {
-				   "type" : "UILabel",
+				   "type" : "UITextField",
 				   "title" : "Label",
-				   "AccessoryType" :	2,
-				   "value" : "label text 3"
+				   "AccessoryType" :	0,
+				   "value" : "",
+				   "UITextField.clearButtonMode" : 1,
+				   "UITextField.placeholder" : "placeholder",
 			   },
 			   {
 				   "type" : "UILabel",
@@ -39,6 +41,49 @@
 				   "title" : "Label",
 				   "AccessoryType" :	5,
 				   "value" : "text 5",
+			   },
+			   {
+				   "type" : "UITextField",
+				   "title" : "Label",
+				   "AccessoryType" :	0,
+				   "value" : "text"
+			   },
+			   {
+				   "type" : "UITextField",
+				   "title" : "Label",
+				   "AccessoryType" :	0,
+				   "value" : "text"
+			   },
+			   {
+				   "type" : "UITextField",
+				   "title" : "Label",
+				   "AccessoryType" :	0,
+				   "value" : "text"
+			   },
+			   {
+				   "type" : "UITextField",
+				   "title" : "Label",
+				   "AccessoryType" :	0,
+				   "value" : "text"
+			   },
+
+			]
+		},
+		{
+	 		"section_header" : "section header name 2",
+	 		"section_footer" : "section footer name 2",
+	 		"rows" : [
+			   {
+				   "type" : "UILabel",
+				   "title" : "Label",
+				   "AccessoryType" :	5,
+				   "value" : "text 5",
+			   },
+			   {
+				   "type" : "UITextField",
+				   "title" : "Label",
+				   "AccessoryType" :	0,
+				   "value" : "text"
 			   }
 			]
 		}

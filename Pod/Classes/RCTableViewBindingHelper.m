@@ -34,6 +34,7 @@
 		
 		[self.tableView registerClass:[RCRestTableViewCell class] forCellReuseIdentifier:[RCRestTableViewCell cellIdentifier]];
 		[self.tableView registerClass:[RCUILabelCell class] forCellReuseIdentifier:[RCUILabelCell cellIdentifier]];
+		[self.tableView registerClass:[RCUITextFieldCell class] forCellReuseIdentifier:[RCUITextFieldCell cellIdentifier]];
 		
 		_tableView.dataSource = self;
 		_tableView.delegate = self;

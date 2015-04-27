@@ -15,6 +15,7 @@
 
 @interface RCRestTableViewViewModel()
 @property (nonatomic,strong) RCRestTableStructure *structure;
+@property (nonatomic,strong) NSMutableDictionary *lazyViewModels;
 @end
 
 @implementation RCRestTableViewViewModel
@@ -23,6 +24,7 @@
 	self = [super init];
 	if (self){
 		self.structure = [[RCRestTableStructure alloc] initWithJsonString:json];
+		self.lazyViewModels = [NSMutableDictionary new];
 	}
 	return self;
 }
@@ -41,6 +43,9 @@
 }
 
 - (id)viewModelForRowAtIndexPath:(NSIndexPath *)indexPath{
+	if ([self.lazyViewModels objectForKey:indexPath])
+		return [self.lazyViewModels objectForKey:indexPath];
+	
 	NSDictionary *row = [self.structure rowAtIndexPath:indexPath];
 	
 	NSString *type = [row objectForKey:kRCRestKeyCellType];
@@ -49,9 +54,10 @@
 	if ([type isEqualToString:@"UILabel"]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUILabelCell cellIdentifier]];
 	}else{
-		
+		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUITextFieldCell cellIdentifier]];
 	}
 	
+	[self.lazyViewModels setObject:cellViewModel forKey:indexPath];
 	return cellViewModel;
 	
 }
