@@ -26,7 +26,7 @@
 	
 	for (NSString *selectorString in [viewModel.typeProperties allKeys]) {
 		SEL selector = NSSelectorFromString(selectorString);
-		NSMethodSignature *methodSignature = [self methodSignatureForSelector:selector];
+		NSMethodSignature *methodSignature = [self.detailTextLabel methodSignatureForSelector:selector];
 		id value = [viewModel.typeProperties objectForKey:selectorString];
 		NSInvocation *inv = [NSInvocation invocationWithMethodSignature:methodSignature];
 		[inv setSelector:selector];
