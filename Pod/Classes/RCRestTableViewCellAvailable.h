@@ -10,3 +10,4 @@
 #import "RCUILabelCell.h"
 #import "RCUITextFieldCell.h"
 #import "RCUIImageViewCell.h"
+#import "RCUISwitchCell.h"

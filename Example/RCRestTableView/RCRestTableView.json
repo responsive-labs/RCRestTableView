@@ -19,10 +19,16 @@
 					"heigth" : 70
 				},
 			   	{
-				   "type" : "UILabel",
-				   "title" : "Label",
-				   "AccessoryType" :	1,
-				   "value" : "label text 2"
+				   "type" : "UISwitch",
+				   "title" : "Switch",
+				   "AccessoryType" :	0,
+				   "value" : 1
+			   },
+			   {
+				   "type" : "UISwitch",
+				   "title" : "Switch",
+				   "AccessoryType" :	0,
+				   "value" : 0
 			   },
 			   {
 				   "type" : "UITextField",

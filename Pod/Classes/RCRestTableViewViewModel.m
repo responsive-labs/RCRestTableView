@@ -62,6 +62,8 @@
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUITextFieldCell cellIdentifier]];
 	}else if ([type isEqualToString:@"UIImageView"]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUIImageViewCell cellIdentifier]];
+	}else if ([type isEqualToString:@"UISwitch"]){
+		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUISwitchCell cellIdentifier]];
 	}
 	
 	[self.lazyViewModels setObject:cellViewModel forKey:indexPath];
