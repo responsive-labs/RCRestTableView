@@ -17,8 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	NSString *path = NSTemporaryDirectory() ;
-	NSLog(@"path %@", path);
 }
 
 - (void)didReceiveMemoryWarning {

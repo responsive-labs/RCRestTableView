@@ -35,6 +35,7 @@
 		[self.tableView registerClass:[RCUITextFieldCell class] forCellReuseIdentifier:[RCUITextFieldCell cellIdentifier]];
 		[self.tableView registerClass:[RCUIImageViewCell class] forCellReuseIdentifier:[RCUIImageViewCell cellIdentifier]];
 		[self.tableView registerClass:[RCUISwitchCell class] forCellReuseIdentifier:[RCUISwitchCell cellIdentifier]];
+		[self.tableView registerClass:[RCMultivalueCell class] forCellReuseIdentifier:[RCMultivalueCell cellIdentifier]];
 		
 		_tableView.dataSource = self;
 		_tableView.delegate = self;
@@ -84,9 +85,7 @@
 
 #pragma mark - UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//	if (self.selection) {
-//		[self.selection execute:_data[indexPath.row]];
-//	}
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

@@ -24,6 +24,7 @@
 @property (nonatomic,readonly) NSString *type;
 @property (nonatomic,readonly) NSString *title;
 @property (nonatomic) id value;
+@property (nonatomic,readonly) NSArray *values;
 @property (nonatomic,readonly) NSString *cellIdentifier;
 @property (nonatomic,readonly) CGFloat cellHeight;
 @property (nonatomic,readonly) NSDictionary *cellProperties;

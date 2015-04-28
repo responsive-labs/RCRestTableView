@@ -11,3 +11,4 @@
 #import "RCUITextFieldCell.h"
 #import "RCUIImageViewCell.h"
 #import "RCUISwitchCell.h"
+#import "RCMultivalueCell.h"

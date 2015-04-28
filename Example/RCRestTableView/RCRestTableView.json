@@ -18,6 +18,17 @@
 			   		"value" : "",
 					"heigth" : 70
 				},
+				{
+		         	"type" : "Multivalue",
+		          	"AccessoryType" : 0,
+					"title" : "Select",
+		          	"value" : "item 2",
+		          	"values" : [
+		            	"item 1",
+		            	"item 2",
+		            	"item 3"
+		          	],
+		        },
 			   	{
 				   "type" : "UISwitch",
 				   "title" : "Switch",
