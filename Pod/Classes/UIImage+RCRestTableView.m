@@ -13,7 +13,7 @@
 + (UIImage*)findImageWithValue:(id)value{
 	if ([value isKindOfClass:[UIImage class]])
 		return value;
-	if ([value isKindOfClass:[NSString class]]) {
+	if ([value isKindOfClass:[NSString class]] && [value length] >0) {
 		UIImage *image;
 		// Check if the image is in the bundle
 		image = [UIImage imageNamed:value];
