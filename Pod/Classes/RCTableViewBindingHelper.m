@@ -70,8 +70,11 @@
 	NSString *cellIdentifier = cellViewModel.cellIdentifier;
 	
 	RCRestTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-	
 	[cell bindViewModel:cellViewModel];
+	
+	if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1){
+		[cell layoutSubviews];
+	}
 	
 	return cell;
 }

@@ -19,6 +19,14 @@
 	return NSStringFromClass([self class]);
 }
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+	if (self) {
+
+	}
+	return self;
+}
+
 - (void)bindViewModel:(RCRestTableViewCellViewModel*)viewModel{
 	for (NSString *selectorString in [viewModel.cellProperties allKeys]) {
 		SEL selector = NSSelectorFromString(selectorString);
@@ -30,6 +38,7 @@
 		[value setAsArgumentForInvocation:inv atIndex:2];
 		[inv invoke];
 	}
+	
 }
 
 - (UITableView*)tableView{

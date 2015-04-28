@@ -4,111 +4,60 @@
 	 		"section_header" : "section header name",
 	 		"section_footer" : "section footer name",
 	 		"rows" : [
-				{
-			   		"type" : "UIImageView",
-			   		"title" : "Image",
-			   		"AccessoryType" : 0,
-			   		"value" : "emptyImage",
-					"heigth" : 70
-			   	},
-				{
-			   		"type" : "UIImageView",
-			   		"title" : "Image",
-			   		"AccessoryType" : 0,
-			   		"value" : "",
-					"heigth" : 70
-				},
-				{
-		         	"type" : "Multivalue",
-		          	"AccessoryType" : 0,
-					"title" : "Select",
-		          	"value" : "item 2",
-		          	"values" : [
-		            	"item 1",
-		            	"item 2",
-		            	"item 3"
-		          	],
-		        },
-			   	{
+			   {
+				   "type" : "UILabel",
+				   "title" : "item label",
+				   "AccessoryType" :	0,
+				   "value" : "Label"
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "item label",
+				   "AccessoryType" :	1,
+				   "value" : "Label"
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "item label",
+				   "AccessoryType" :	2,
+				   "value" : "Label"
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "item label",
+				   "AccessoryType" :	3,
+				   "value" : "Label"
+			   },
+			   {
+				   "type" : "Multivalue",
+				   "title" : "item label",
+				   "AccessoryType" :	0,
+				   "value" : "Label",
+				   "values" : [
+				   		"Label",
+				   		"Label 2",
+				   		"Label 3",
+				   ]
+			   },
+			   {
 				   "type" : "UISwitch",
-				   "title" : "Switch",
+				   "title" : "item label",
 				   "AccessoryType" :	0,
 				   "value" : 1
 			   },
 			   {
-				   "type" : "UISwitch",
-				   "title" : "Switch",
-				   "AccessoryType" :	0,
-				   "value" : 0
-			   },
-			   {
 				   "type" : "UITextField",
-				   "title" : "Label",
-				   "AccessoryType" :	0,
-				   "value" : "",
-				   "UITextField.clearButtonMode" : 1,
-				   "UITextField.placeholder" : "placeholder",
+				   "title" : "item label",
+				   "value" : "Textfield",
+				   "AccessoryType" :	1,
+				   "UITextField.ClearButtonMode" : 1,
 			   },
 			   {
-				   "type" : "UILabel",
-				   "title" : "Label",
-				   "AccessoryType" :	3,
-				   "value" : "label text 4"
-			   },
-			   {
-				   "type" : "UILabel",
-				   "title" : "Label",
-				   "AccessoryType" :	4,
-				   "value" : "label text 5"
-			   },
-			   {
-				   "type" : "UILabel",
-				   "title" : "Label",
-				   "AccessoryType" :	5,
-				   "value" : "text 5",
-			   },
-			   {
-				   "type" : "UITextField",
-				   "title" : "Label",
-				   "AccessoryType" :	0,
-				   "value" : "text"
-			   },
-			   {
-				   "type" : "UITextField",
-				   "title" : "Label",
-				   "AccessoryType" :	0,
-				   "value" : "text"
-			   },
-			   {
-				   "type" : "UITextField",
-				   "title" : "Label",
-				   "AccessoryType" :	0,
-				   "value" : "text"
-			   },
-			   {
-				   "type" : "UITextField",
-				   "title" : "Label",
-				   "AccessoryType" :	0,
-				   "value" : "text"
-			   },
-
-			]
-		},
-		{
-	 		"section_header" : "section header name 2",
-	 		"section_footer" : "section footer name 2",
-	 		"rows" : [
-			   {
-				   "type" : "UILabel",
-				   "title" : "Label",
-				   "AccessoryType" :	5,
-				   "value" : "text 5",
-			   },
-			   {
-				   "type" : "UITextField",
-				   "title" : "Label",
-				   "AccessoryType" :	0,
-				   "value" : "text"
+				   "type" : "UIImageView",
+				   "title" : "Image",
+				   "value" : "emptyImage",
+				   "AccessoryType" :	1,
+				   "heigth" : 80,
 			   }
 			]
 		}

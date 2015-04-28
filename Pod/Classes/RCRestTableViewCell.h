@@ -16,7 +16,6 @@
 
 @interface RCRestTableViewCell : UITableViewCell <RCReactiveView>
 
-
 + (NSString*)cellIdentifier;
 - (UITableView*)tableView;
 
