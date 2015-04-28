@@ -29,6 +29,11 @@
 	return self;
 }
 
+- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	RCRestTableViewCellViewModel *cellViewModel = [self viewModelForRowAtIndexPath:indexPath];
+	return cellViewModel.cellHeight;
+}
+
 - (NSInteger)numberOfSections{
 	return [[self.structure sections] count];
 }

@@ -9,12 +9,14 @@
 			   		"title" : "Image",
 			   		"AccessoryType" : 0,
 			   		"value" : "emptyImage",
+					"heigth" : 70
 			   	},
 				{
 			   		"type" : "UIImageView",
 			   		"title" : "Image",
 			   		"AccessoryType" : 0,
 			   		"value" : "",
+					"heigth" : 70
 				},
 			   	{
 				   "type" : "UILabel",

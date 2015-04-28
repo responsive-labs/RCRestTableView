@@ -19,6 +19,7 @@
 
 - (instancetype)initWithJsonString:(NSString*)json;
 
+- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 - (RCRestTableViewCellViewModel*)viewModelForRowAtIndexPath:(NSIndexPath *)indexPath;

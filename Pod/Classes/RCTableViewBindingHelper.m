@@ -30,8 +30,6 @@
 		self.tableView = tableView;
 		self.viewModel = viewModel;
 		
-		self.tableView.rowHeight = 44.0f; // Default UITableViewCellSize
-		
 		[self.tableView registerClass:[RCRestTableViewCell class] forCellReuseIdentifier:[RCRestTableViewCell cellIdentifier]];
 		[self.tableView registerClass:[RCUILabelCell class] forCellReuseIdentifier:[RCUILabelCell cellIdentifier]];
 		[self.tableView registerClass:[RCUITextFieldCell class] forCellReuseIdentifier:[RCUITextFieldCell cellIdentifier]];
@@ -52,6 +50,10 @@
 }
 
 #pragma mark <UITableViewDataSource>
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	return [self.viewModel heightForRowAtIndexPath:indexPath];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 	return [self.viewModel numberOfSections];

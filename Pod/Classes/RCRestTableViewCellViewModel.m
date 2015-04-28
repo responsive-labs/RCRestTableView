@@ -15,6 +15,7 @@
 @property (nonatomic,readwrite) NSString *type;
 @property (nonatomic,readwrite) NSString *title;
 @property (nonatomic,readwrite) NSString *cellIdentifier;
+@property (nonatomic,readwrite) CGFloat cellHeight;
 @property (nonatomic,readwrite) NSMutableDictionary *cellProperties;
 @property (nonatomic,readwrite) NSMutableDictionary *typeProperties;
 @end
@@ -29,6 +30,7 @@
 		self.title = [structure objectForKey:kRCRestKeyCellTitle];
 		self.cellIdentifier = identifier;
 		self.value = [structure objectForKey:kRCRestKeyCellValue];
+		self.cellHeight = [structure objectForKey:kRCRestKeyCellHeight] ? [[structure objectForKey:kRCRestKeyCellHeight] floatValue] : kRCDefaultCellHeight;
 		
 		NSMutableDictionary *mutableStructure = [[NSMutableDictionary alloc] initWithDictionary:structure];
 		[mutableStructure removeObjectForKey:kRCRestKeyCellType];
