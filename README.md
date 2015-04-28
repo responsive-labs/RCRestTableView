@@ -1,6 +1,6 @@
 # RCRestTableView
 
-[![CI Status](http://img.shields.io/travis/Luca Serpico/RCRestTableView.svg?style=flat)](https://travis-ci.org/Luca Serpico/RCRestTableView)
+[![CI Status](http://img.shields.io/travis/serluca/RCRestTableView.svg?style=flat)](https://travis-ci.org/Luca Serpico/RCRestTableView)
 [![Version](https://img.shields.io/cocoapods/v/RCRestTableView.svg?style=flat)](http://cocoapods.org/pods/RCRestTableView)
 [![License](https://img.shields.io/cocoapods/l/RCRestTableView.svg?style=flat)](http://cocoapods.org/pods/RCRestTableView)
 [![Platform](https://img.shields.io/cocoapods/p/RCRestTableView.svg?style=flat)](http://cocoapods.org/pods/RCRestTableView)
