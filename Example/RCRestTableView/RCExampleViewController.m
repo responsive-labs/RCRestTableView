@@ -8,6 +8,7 @@
 
 #import "RCExampleViewController.h"
 #import "RCRestTableViewController.h"
+#import "RCRestTableView.h"
 #import <objc/message.h>
 
 @interface RCExampleViewController ()
@@ -26,10 +27,8 @@
 
 #pragma mark <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	if (indexPath.section == 0 && indexPath.row == 0){
-		NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"RCRestTableView" ofType:@"json"];
-		NSString *json = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:NULL];
-		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithJsonString:json];
+	if (indexPath.section == 0 && indexPath.row == 0) {
+		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithJsonString:[self exampleJson]];
 		[self.navigationController pushViewController:controller animated:YES];
 		
 	}else if (indexPath.section == 0 && indexPath.row == 1){
@@ -37,12 +36,23 @@
 		[self.navigationController pushViewController:controller animated:YES];
 		
 	}else if (indexPath.section == 0 && indexPath.row == 2){
-		NSString *path = [[NSBundle mainBundle] pathForResource:@"RCRestTableView" ofType:@"plist"];
-		NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:path];
-		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithDictionary:dictionary];
+		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithDictionary:[self examplePlist]];
+		[self.navigationController pushViewController:controller animated:YES];
+		
+	}else if (indexPath.section == 0 && indexPath.row == 3){
+		RCRestTableView *tableView = [[RCRestTableView alloc] initWithJsonString:[self exampleJson]];
+		UITableViewController *controller = [UITableViewController new];
+		controller.tableView = tableView;
 		[self.navigationController pushViewController:controller animated:YES];
 		
 	}
+}
+
+#pragma mark - Helpers
+
+- (NSString*)exampleJson{
+	NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"RCRestTableView" ofType:@"json"];
+	return [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:NULL];
 }
 
 - (NSDictionary*)exampleDictionary{
@@ -66,6 +76,11 @@
 				   };
 	
 	return dictionary;
+}
+
+- (NSDictionary*)examplePlist{
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"RCRestTableView" ofType:@"plist"];
+	return [[NSDictionary alloc] initWithContentsOfFile:path];
 }
 
 
