@@ -21,13 +21,16 @@
 	if (self){
 		self.values = values;
 		self.selectedValue = selectedValue;
-		self.tableView.rowHeight = UITableViewAutomaticDimension;
 		[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 	}
 	return self;
 }
 
 #pragma mark <UITableViewDataSource>
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	return 44.0f;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return [self.values count];
