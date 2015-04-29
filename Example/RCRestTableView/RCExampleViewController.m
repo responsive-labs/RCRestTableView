@@ -33,9 +33,15 @@
 		[self.navigationController pushViewController:controller animated:YES];
 		
 	}else if (indexPath.section == 0 && indexPath.row == 1){
-		
 		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithDictionary:[self exampleDictionary]];
 		[self.navigationController pushViewController:controller animated:YES];
+		
+	}else if (indexPath.section == 0 && indexPath.row == 2){
+		NSString *path = [[NSBundle mainBundle] pathForResource:@"RCRestTableView" ofType:@"plist"];
+		NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:path];
+		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithDictionary:dictionary];
+		[self.navigationController pushViewController:controller animated:YES];
+		
 	}
 }
 

@@ -10,6 +10,7 @@
 		0A852AA1920958A601D2E1D3 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7815265DECB835CFF3F6F5BC /* libPods-Tests.a */; };
 		5A2379A31AF03C8500DBEEE9 /* jsonTestFile.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A2379A21AF03C8500DBEEE9 /* jsonTestFile.json */; };
 		5A2379A71AF03DB200DBEEE9 /* RCRestTableStructureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2379A01AF0315500DBEEE9 /* RCRestTableStructureTests.m */; };
+		5AAF83301AF1004A0067EEEA /* RCRestTableView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF832F1AF1004A0067EEEA /* RCRestTableView.plist */; };
 		5AF21C811AE938B400B2B349 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF21C801AE938B400B2B349 /* Main.storyboard */; };
 		5AF21C841AE9394000B2B349 /* RCExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF21C831AE9394000B2B349 /* RCExampleViewController.m */; };
 		5AF21C861AE93BE000B2B349 /* RCRestTableView.json in Resources */ = {isa = PBXBuildFile; fileRef = 5AF21C851AE93BE000B2B349 /* RCRestTableView.json */; };
@@ -46,6 +47,7 @@
 		58CDCA98744238F4407CDED3 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5A2379A01AF0315500DBEEE9 /* RCRestTableStructureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRestTableStructureTests.m; sourceTree = "<group>"; };
 		5A2379A21AF03C8500DBEEE9 /* jsonTestFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonTestFile.json; sourceTree = "<group>"; };
+		5AAF832F1AF1004A0067EEEA /* RCRestTableView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RCRestTableView.plist; sourceTree = "<group>"; };
 		5AF21C801AE938B400B2B349 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5AF21C821AE9394000B2B349 /* RCExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCExampleViewController.h; sourceTree = "<group>"; };
 		5AF21C831AE9394000B2B349 /* RCExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCExampleViewController.m; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				5AF21C831AE9394000B2B349 /* RCExampleViewController.m */,
 				5AF21C801AE938B400B2B349 /* Main.storyboard */,
 				5AF21C851AE93BE000B2B349 /* RCRestTableView.json */,
+				5AAF832F1AF1004A0067EEEA /* RCRestTableView.plist */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF21C811AE938B400B2B349 /* Main.storyboard in Resources */,
+				5AAF83301AF1004A0067EEEA /* RCRestTableView.plist in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				5AF21C861AE93BE000B2B349 /* RCRestTableView.json in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
