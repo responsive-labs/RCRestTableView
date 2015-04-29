@@ -1,0 +1,7 @@
+ci_service: travis_ci
+coverage_service: coveralls
+xcodeproj: Example/RCRestTableView.xcodeproj
+source_directory: Example/RCRestTableView
+ignore:
+  - Example/Tests/*
+  - Example/Pods/*
