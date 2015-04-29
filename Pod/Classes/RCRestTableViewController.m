@@ -24,6 +24,15 @@
 	return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary{
+	self = [super initWithNibName:nil bundle:nil]; // Retrieve an empty table view
+	if (self) {
+		RCRestTableView *tableView = [[RCRestTableView alloc] initWithDictionary:dictionary];
+		self.tableView = tableView;
+	}
+	return self;
+}
+
 - (instancetype)init{
 	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
 	return nil;

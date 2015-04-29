@@ -20,10 +20,10 @@
 
 @implementation RCRestTableViewViewModel
 
-- (instancetype)initWithJsonString:(NSString*)json{
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary{
 	self = [super init];
 	if (self){
-		self.structure = [[RCRestTableStructure alloc] initWithJsonString:json];
+		self.structure = [[RCRestTableStructure alloc] initWithDictionary:dictionary];
 		self.lazyViewModels = [NSMutableDictionary new];
 	}
 	return self;

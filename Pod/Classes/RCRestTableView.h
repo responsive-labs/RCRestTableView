@@ -11,5 +11,6 @@
 @interface RCRestTableView : UITableView
 
 - (instancetype)initWithJsonString:(NSString*)json;
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
 @end

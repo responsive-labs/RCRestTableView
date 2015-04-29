@@ -12,4 +12,6 @@
 
 - (instancetype)initWithJsonString:(NSString*)json;
 
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
+
 @end

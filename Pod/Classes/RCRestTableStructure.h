@@ -10,7 +10,7 @@
 
 @interface RCRestTableStructure : NSObject
 
-- (instancetype)initWithJsonString:(NSString*)json;
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
 - (NSArray*)sections;
 - (NSDictionary*)sectionAtIndex:(NSInteger)section;

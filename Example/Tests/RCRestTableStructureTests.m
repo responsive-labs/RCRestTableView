@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RCRestTableStructure.h"
-#import "RCRestTableViewKeys.h"
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
+#import "RCRestTableStructure.h"
+#import "RCRestTableViewKeys.h"
+#import "NSDictionary+RCRestTableView.h"
 
 SpecBegin(RCRestTableStructure)
 
@@ -20,7 +21,8 @@ describe(@"Structure", ^{
 		NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
 		NSString *jsonPath = [testBundle pathForResource:@"jsonTestFile" ofType:@"json"];
 		NSString *json = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:NULL];
-		structure = [[RCRestTableStructure alloc] initWithJsonString:json];
+		NSDictionary *dictionary = [NSDictionary initWithJsonString:json];
+		structure = [[RCRestTableStructure alloc] initWithDictionary:dictionary];
 	});
 	
 	it(@"sections", ^{

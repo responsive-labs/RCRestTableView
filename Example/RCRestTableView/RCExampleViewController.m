@@ -31,7 +31,36 @@
 		NSString *json = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:NULL];
 		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithJsonString:json];
 		[self.navigationController pushViewController:controller animated:YES];
+		
+	}else if (indexPath.section == 0 && indexPath.row == 1){
+		
+		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithDictionary:[self exampleDictionary]];
+		[self.navigationController pushViewController:controller animated:YES];
 	}
 }
+
+- (NSDictionary*)exampleDictionary{
+	NSDictionary *dictionary;
+	
+	dictionary = @{
+				   @"sections" : @[
+						   @{
+							   @"section_header": @"section header name",
+							   @"section_footer": @"section footer name",
+							   @"rows" : @[
+									   @{
+										   @"type" : @"UILabel",
+										   @"title" : @"Label",
+										   @"AccessoryType" : @0,
+										   @"value" : @"from dictionary"
+									   }
+							   ]
+						   }
+						]
+				   };
+	
+	return dictionary;
+}
+
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "RCRestTableView.h"
+#import "NSDictionary+RCRestTableView.h"
 #import "RCRestTableViewViewModel.h"
 #import "RCTableViewBindingHelper.h"
 
@@ -21,12 +22,23 @@
 - (instancetype)initWithJsonString:(NSString*)json{
 	self = [super initWithFrame:CGRectZero style:UITableViewStyleGrouped];
 	if (self) {
-		self.viewModel = [[RCRestTableViewViewModel alloc] initWithJsonString:json];
+		NSDictionary *dictionary = [NSDictionary initWithJsonString:json];
+		if (!dictionary) [NSException raise:@"Invalid json format" format:@"Please provide a correct json"];
+
+		self.viewModel = [[RCRestTableViewViewModel alloc] initWithDictionary:dictionary];
 		self.bindingHelper = [RCTableViewBindingHelper bindingHelperForTableView:self viewModel:self.viewModel];
 	}
 	return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary{
+	self = [super initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+	if (self) {
+		self.viewModel = [[RCRestTableViewViewModel alloc] initWithDictionary:dictionary];
+		self.bindingHelper = [RCTableViewBindingHelper bindingHelperForTableView:self viewModel:self.viewModel];
+	}
+	return self;
+}
 
 - (instancetype)init{
 	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];

@@ -7,7 +7,6 @@
 //
 
 #import "RCRestTableStructure.h"
-#import "NSDictionary+RCRestTableView.h"
 #import "RCRestTableViewKeys.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -18,12 +17,10 @@
 
 @implementation RCRestTableStructure
 
-- (instancetype)initWithJsonString:(NSString*)json{
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary{
 	self = [super init];
 	if (self) {
-		self.structure = [NSDictionary initWithJsonString:json];
-		NSLog(@"structure\n %@", self.structure);
-		if (!self.structure) [NSException raise:@"Invalid json format" format:@"Please provide a correct json"];
+		self.structure = dictionary;
 	}
 	return self;
 }
