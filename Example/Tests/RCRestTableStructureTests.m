@@ -46,6 +46,12 @@ describe(@"Structure", ^{
 		NSDictionary *fromStructure = [structure rowAtIndexPath:indexPath];
 		expect(fromSections).to.equal(fromStructure);
 	});
+	
+	it(@"empty dictionary", ^{
+		RCRestTableStructure *emptyStructure = [[RCRestTableStructure alloc] initWithDictionary:@{}];
+		expect([emptyStructure sections]).to.beNil();
+		expect([emptyStructure rowsInSection:0]).to.beNil();
+	});
 });
 
 SpecEnd

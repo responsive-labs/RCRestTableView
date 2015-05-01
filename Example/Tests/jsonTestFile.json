@@ -1,8 +1,8 @@
 {
 	"sections": [
 		{
-	 		"section_header" : "section header name",
-	 		"section_footer" : "section footer name",
+	 		"section_header" : "section header name 1",
+	 		"section_footer" : "section footer name 1",
 	 		"rows" : [
 			   {
 				   "type" : "UILabel",
@@ -14,10 +14,11 @@
 				   "type" : "UILabel",
 				   "title" : "item label",
 				   "AccessoryType" :	1,
-				   "value" : "Label"
+				   "value" : "Label",
+				   "height" : 50
 			   },
 			   {
-				   "type" : "UILabel",
+				   "type" : "UITextField",
 				   "title" : "item label",
 				   "AccessoryType" :	2,
 				   "value" : "Label"
@@ -25,8 +26,8 @@
 			]
 		},
 		{
-	 		"section_header" : "section header name",
-	 		"section_footer" : "section footer name",
+	 		"section_header" : "section header name 2",
+	 		"section_footer" : "section footer name 2",
 	 		"rows" : [
 			   {
 				   "type" : "UILabel",

@@ -17,4 +17,4 @@ static NSString * const kRCRestKeyCellType = @"type";
 static NSString * const kRCRestKeyCellTitle = @"title";
 static NSString * const kRCRestKeyCellValue = @"value";
 static NSString * const kRCRestKeyCellValues = @"values";
-static NSString * const kRCRestKeyCellHeight = @"heigth";
+static NSString * const kRCRestKeyCellHeight = @"height";

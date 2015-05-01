@@ -12,11 +12,6 @@
 
 @interface RCRestTableViewViewModel : NSObject
 
-/** Gives a signal when new content is available */
-@property (nonatomic,readonly) RACSignal *updateContentSignal;
-/** Command to execute when a cell has been selected. */
-@property (nonatomic,readonly) RACCommand *selection;
-
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
