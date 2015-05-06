@@ -57,4 +57,7 @@
 	return nil;
 }
 
+- (NSDictionary*)values{
+	return [self.viewModel values];
+}
 @end

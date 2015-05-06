@@ -9,7 +9,6 @@
 #import "RCUIImageViewCell.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSValue+RCRestTableVIew.h"
-#import "UIImage+RCRestTableView.h"
 
 @interface RCUIImageViewCell() <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UIImageView *customImageView;
@@ -51,10 +50,6 @@
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:.35 constant:0]];
 	
 	// Detail constraints
-//	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.textLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:10]];
-//	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-//	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-//	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-20]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.customImageView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0f]]; // Aspect ratio constraint
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
@@ -118,7 +113,7 @@
 	[super bindViewModel:viewModel];
 	self.viewModel = viewModel;
 	self.textLabel.text = viewModel.title;
-	[self.customImageView setImage:[UIImage findImageWithValue:viewModel.value]];
+	[self.customImageView setImage:viewModel.value];
 	[self.customImageView setBackgroundColor:[UIColor grayColor]];
 	
 	for (NSString *selectorString in [viewModel.typeProperties allKeys]) {

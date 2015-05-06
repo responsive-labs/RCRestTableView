@@ -13,6 +13,7 @@ static NSString * const kRCRestKeyRows = @"rows";
 static NSString * const kRCRestKeySectionHeader = @"section_header";
 static NSString * const kRCRestKeySectionFooter = @"section_footer";
 
+static NSString * const kRCRestKeyCellIdentifier = @"identifier";
 static NSString * const kRCRestKeyCellType = @"type";
 static NSString * const kRCRestKeyCellTitle = @"title";
 static NSString * const kRCRestKeyCellValue = @"value";

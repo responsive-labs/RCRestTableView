@@ -73,4 +73,14 @@
 	
 }
 
+- (NSDictionary*)values{
+	NSMutableDictionary *values = [NSMutableDictionary new];
+	for (RCRestTableViewCellViewModel *cellViewModel in [self.lazyViewModels allValues]) {
+		if ([cellViewModel userIdentifier]) {
+			[values setObject:cellViewModel.value forKey:cellViewModel.userIdentifier];
+		}
+	}
+	return values;
+}
+
 @end

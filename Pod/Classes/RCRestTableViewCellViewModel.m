@@ -10,12 +10,14 @@
 #import "RCRestTableViewKeys.h"
 #import <UIKit/UIKit.h>
 #import "NSString+RCRestTableView.h"
+#import "UIImage+RCRestTableView.h"
 
 @interface RCRestTableViewCellViewModel()
 @property (nonatomic,readwrite) NSString *type;
 @property (nonatomic,readwrite) NSString *title;
 @property (nonatomic,readwrite) NSMutableArray *values;
 @property (nonatomic,readwrite) NSString *cellIdentifier;
+@property (nonatomic,readwrite) NSString *userIdentifier;
 @property (nonatomic,readwrite) CGFloat cellHeight;
 @property (nonatomic,readwrite) NSMutableDictionary *cellProperties;
 @property (nonatomic,readwrite) NSMutableDictionary *typeProperties;
@@ -31,8 +33,15 @@
 		self.title = [structure objectForKey:kRCRestKeyCellTitle];
 		self.cellIdentifier = identifier;
 		self.value = [structure objectForKey:kRCRestKeyCellValue];
+		
+		// If is an UIImageCell convert the string in UIImage if possible
+		if ([self.type isEqualToString:@"UIImageView"]) {
+			self.value = [UIImage findImageWithValue:self.value];
+		}
+		
 		self.values = [structure objectForKey:kRCRestKeyCellValues];
 		self.cellHeight = [structure objectForKey:kRCRestKeyCellHeight] ? [[structure objectForKey:kRCRestKeyCellHeight] floatValue] : kRCDefaultCellHeight;
+		self.userIdentifier = [structure objectForKey:kRCRestKeyCellIdentifier];
 		
 		NSMutableDictionary *mutableStructure = [[NSMutableDictionary alloc] initWithDictionary:structure];
 		[mutableStructure removeObjectForKey:kRCRestKeyCellType];

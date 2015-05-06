@@ -10,6 +10,7 @@
 				   "value" : "emptyImage",
 				   "AccessoryType" :	1,
 				   "height" : 80,
+				   "identifier" : "profileImage",
 			   },
 			   {
 				   "type" : "UILabel",
@@ -24,6 +25,7 @@
 				   "AccessoryType" :	0,
 				   "UITextField.placeholder" : "First Name",
 				   "UITextField.ClearButtonMode" : 1,
+				   "identifier" : "firstName",
 			   },
 			   {
 				   "type" : "UITextField",
@@ -31,6 +33,7 @@
 				   "AccessoryType" :	0,
 				   "UITextField.placeholder" : "Last Name",
 				   "UITextField.ClearButtonMode" : 1,
+				   "identifier" : "lastName",
 			   },
 			]
 		},
@@ -41,7 +44,8 @@
 				   "type" : "UISwitch",
 				   "title" : "Public profile",
 				   "AccessoryType" :	0,
-				   "value" : 1
+				   "value" : 1,
+				   "identifier" : "publicProfile",
 			   },
 			   {
 				   "type" : "Multivalue",
@@ -51,7 +55,8 @@
 				   "values" : [
 				   		"Objective-C",
 				   		"Swift",
-				   ]
+				   ],
+				   "identifier" : "type",
 			   },
 			]
 		}

@@ -13,4 +13,10 @@
 - (instancetype)initWithJsonString:(NSString*)json;
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
+/**
+ *  Get the current values of the fields where the property `identifier` is specified
+ *
+ *  @return A dictionary with the values, where the key reflect the property `identifier` and value is the current value of the field
+ */
+- (NSDictionary*)values;
 @end

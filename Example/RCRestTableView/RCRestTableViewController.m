@@ -27,7 +27,7 @@
 }
 
 - (IBAction)save:(id)sender{
-	
+	NSLog(@"%@",[self.tableView values]);
 	
 }
 
