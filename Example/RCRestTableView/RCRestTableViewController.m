@@ -27,8 +27,9 @@
 }
 
 - (IBAction)save:(id)sender{
-	NSLog(@"%@",[self.tableView values]);
-	
+	NSDictionary *values = [self.tableView values];
+	NSString *message = [NSString stringWithFormat:@"Values:\n%@",values];
+	[[[UIAlertView alloc] initWithTitle:@"RCRestTableView" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]show];
 }
 
 @end
