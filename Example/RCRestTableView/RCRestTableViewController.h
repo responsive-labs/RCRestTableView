@@ -1,9 +1,9 @@
 //
 //  RCRestTableViewController.h
-//  Pods
+//  RCRestTableView
 //
-//  Created by Luca Serpico on 24/04/2015.
-//
+//  Created by Luca Serpico on 06/05/2015.
+//  Copyright (c) 2015 Luca Serpico. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,7 +11,5 @@
 @interface RCRestTableViewController : UITableViewController
 
 - (instancetype)initWithJsonString:(NSString*)json;
-
-- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
 @end

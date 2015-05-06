@@ -7,9 +7,8 @@
 //
 
 #import "RCExampleViewController.h"
+#import <RCRestTableView/RCRestTableView.h>
 #import "RCRestTableViewController.h"
-#import "RCRestTableView.h"
-#import <objc/message.h>
 
 @interface RCExampleViewController ()
 @end
@@ -28,23 +27,25 @@
 #pragma mark <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	if (indexPath.section == 0 && indexPath.row == 0) {
-		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithJsonString:[self exampleJson]];
-		[self.navigationController pushViewController:controller animated:YES];
-		
-	}else if (indexPath.section == 0 && indexPath.row == 1){
-		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithDictionary:[self exampleDictionary]];
-		[self.navigationController pushViewController:controller animated:YES];
-		
-	}else if (indexPath.section == 0 && indexPath.row == 2){
-		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithDictionary:[self examplePlist]];
-		[self.navigationController pushViewController:controller animated:YES];
-		
-	}else if (indexPath.section == 0 && indexPath.row == 3){
 		RCRestTableView *tableView = [[RCRestTableView alloc] initWithJsonString:[self exampleJson]];
 		UITableViewController *controller = [UITableViewController new];
 		controller.tableView = tableView;
 		[self.navigationController pushViewController:controller animated:YES];
 		
+	}else if (indexPath.section == 0 && indexPath.row == 1){
+		RCRestTableView *tableView = [[RCRestTableView alloc] initWithDictionary:[self exampleDictionary]];
+		UITableViewController *controller = [UITableViewController new];
+		controller.tableView = tableView;
+		[self.navigationController pushViewController:controller animated:YES];
+		
+	}else if (indexPath.section == 0 && indexPath.row == 2){
+		RCRestTableView *tableView = [[RCRestTableView alloc] initWithDictionary:[self examplePlist]];
+		UITableViewController *controller = [UITableViewController new];
+		controller.tableView = tableView;
+		[self.navigationController pushViewController:controller animated:YES];
+	}else if (indexPath.section == 0 && indexPath.row == 3){
+		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithJsonString:[self exampleJson]];
+		[self.navigationController pushViewController:controller animated:YES];
 	}
 }
 
@@ -61,14 +62,15 @@
 	dictionary = @{
 				   @"sections" : @[
 						   @{
-							   @"section_header": @"section header name",
-							   @"section_footer": @"section footer name",
+							   @"section_header": @"User profile",
+							   @"section_footer": @"Update this section with your personal info",
 							   @"rows" : @[
 									   @{
 										   @"type" : @"UILabel",
-										   @"title" : @"Label",
+										   @"title" : @"Title",
 										   @"AccessoryType" : @0,
-										   @"value" : @"from dictionary"
+										   @"value" : @"I'm so lazy to implement this :p",
+										   @"UILabel.adjustsFontSizeToFitWidth" : @1
 									   }
 							   ]
 						   }

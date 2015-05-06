@@ -6,30 +6,90 @@
 	<array>
 		<dict>
 			<key>section_header</key>
-			<string>section header name</string>
+			<string>User profile</string>
 			<key>section_footer</key>
-			<string>section footer name</string>
+			<string>Update this section with your personal info</string>
 			<key>rows</key>
 			<array>
 				<dict>
 					<key>type</key>
+					<string>UIImageView</string>
+					<key>title</key>
+					<string>Profile photo</string>
+					<key>value</key>
+					<string>emptyImage</string>
+					<key>AccessoryType</key>
+					<integer>1</integer>
+					<key>height</key>
+					<integer>80</integer>
+				</dict>
+				<dict>
+					<key>type</key>
 					<string>UILabel</string>
 					<key>title</key>
-					<string>label</string>
+					<string>Email</string>
 					<key>value</key>
-					<string>value</string>
+					<string>serpicoluca@gmail.com</string>
 					<key>AccessoryType</key>
 					<integer>0</integer>
+					<key>UILabel.adjustsFontSizeToFitWidth</key>
+					<integer>1</integer>
 				</dict>
 				<dict>
 					<key>type</key>
 					<string>UITextField</string>
 					<key>title</key>
-					<string>label</string>
+					<string>First Name</string>
+					<key>AccessoryType</key>
+					<integer>1</integer>
+					<key>UITextField.placeholder</key>
+					<string>First Name</string>
+					<key>UITextField.ClearButtonMode</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>type</key>
+					<string>UITextField</string>
+					<key>title</key>
+					<string>Last Name</string>
+					<key>AccessoryType</key>
+					<integer>1</integer>
+					<key>UITextField.placeholder</key>
+					<string>Last Name</string>
+					<key>UITextField.ClearButtonMode</key>
+					<integer>1</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>section_header</key>
+			<string>Profile settings</string>
+			<key>rows</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<string>UISwitch</string>
+					<key>title</key>
+					<string>Public profile</string>
 					<key>value</key>
-					<string>value</string>
+					<integer>1</integer>
 					<key>AccessoryType</key>
 					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>type</key>
+					<string>Multivalue</string>
+					<key>title</key>
+					<string>Type</string>
+					<key>value</key>
+					<string>Objective-C</string>
+					<key>AccessoryType</key>
+					<integer>0</integer>
+					<key>values</key>
+					<array>
+						<string>Objective-C</string>
+						<string>Swift</string>
+					</array>
 				</dict>
 			</array>
 		</dict>

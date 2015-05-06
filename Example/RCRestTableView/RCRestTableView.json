@@ -1,64 +1,58 @@
 {
 	"sections": [
 		{
-	 		"section_header" : "section header name",
-	 		"section_footer" : "section footer name",
+	 		"section_header" : "User profile",
+	 		"section_footer" : "Update this section with your personal info",
 	 		"rows" : [
-			   {
-				   "type" : "UILabel",
-				   "title" : "item label",
-				   "AccessoryType" :	0,
-				   "value" : "Label"
-			   },
-			   {
-				   "type" : "UILabel",
-				   "title" : "item label",
+	 			{
+				   "type" : "UIImageView",
+				   "title" : "Profile photo",
+				   "value" : "emptyImage",
 				   "AccessoryType" :	1,
-				   "value" : "Label"
+				   "height" : 80,
 			   },
 			   {
 				   "type" : "UILabel",
-				   "title" : "item label",
-				   "AccessoryType" :	2,
-				   "value" : "Label"
-			   },
-			   {
-				   "type" : "UILabel",
-				   "title" : "item label",
-				   "AccessoryType" :	3,
-				   "value" : "Label"
-			   },
-			   {
-				   "type" : "Multivalue",
-				   "title" : "item label",
+				   "title" : "Email",
 				   "AccessoryType" :	0,
-				   "value" : "Label",
-				   "values" : [
-				   		"Label",
-				   		"Label 2",
-				   		"Label 3",
-				   ]
+				   "value" : "serpicoluca@gmail.com",
+				   "UILabel.adjustsFontSizeToFitWidth" : 1
 			   },
 			   {
+				   "type" : "UITextField",
+				   "title" : "First Name",
+				   "AccessoryType" :	0,
+				   "UITextField.placeholder" : "First Name",
+				   "UITextField.ClearButtonMode" : 1,
+			   },
+			   {
+				   "type" : "UITextField",
+				   "title" : "Last Name",
+				   "AccessoryType" :	0,
+				   "UITextField.placeholder" : "Last Name",
+				   "UITextField.ClearButtonMode" : 1,
+			   },
+			]
+		},
+		{
+			"section_header" : "Profile settings",
+			"rows" : [
+				{
 				   "type" : "UISwitch",
-				   "title" : "item label",
+				   "title" : "Public profile",
 				   "AccessoryType" :	0,
 				   "value" : 1
 			   },
 			   {
-				   "type" : "UITextField",
-				   "title" : "item label",
-				   "value" : "Textfield",
-				   "AccessoryType" :	1,
-				   "UITextField.ClearButtonMode" : 1,
+				   "type" : "Multivalue",
+				   "title" : "Type",
+				   "AccessoryType" :	0,
+				   "value" : "Objective-C",
+				   "values" : [
+				   		"Objective-C",
+				   		"Swift",
+				   ]
 			   },
-			   {
-				   "type" : "UIImageView",
-				   "title" : "Image",
-				   "value" : "emptyImage",
-				   "AccessoryType" :	1,
-				   "height" : 80,
-			   }
 			]
 		}
 	]
