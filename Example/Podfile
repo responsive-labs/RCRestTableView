@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'RCRestTableView', :exclusive => true do
   pod "RCRestTableView", :path => "../"
-  pod "ReactiveCocoa"
+  pod "ReactiveCocoa", '~> 2.5'
 end
 
 target 'Tests', :exclusive => true do
