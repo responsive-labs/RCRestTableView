@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.title = @"RCRestTableView";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,22 +31,27 @@
 		RCRestTableView *tableView = [[RCRestTableView alloc] initWithJsonString:[self exampleJson]];
 		UITableViewController *controller = [UITableViewController new];
 		controller.tableView = tableView;
+		controller.title = @"RCRestTableView - Json";
 		[self.navigationController pushViewController:controller animated:YES];
 		
 	}else if (indexPath.section == 0 && indexPath.row == 1){
 		RCRestTableView *tableView = [[RCRestTableView alloc] initWithDictionary:[self exampleDictionary]];
 		UITableViewController *controller = [UITableViewController new];
 		controller.tableView = tableView;
+		controller.title = @"RCRestTableView - Dictionary";
 		[self.navigationController pushViewController:controller animated:YES];
 		
 	}else if (indexPath.section == 0 && indexPath.row == 2){
 		RCRestTableView *tableView = [[RCRestTableView alloc] initWithDictionary:[self examplePlist]];
 		UITableViewController *controller = [UITableViewController new];
 		controller.tableView = tableView;
+		controller.title = @"RCRestTableView - Plist";
 		[self.navigationController pushViewController:controller animated:YES];
+		
 	}else if (indexPath.section == 0 && indexPath.row == 3){
 		RCRestTableViewController *controller = [[RCRestTableViewController alloc] initWithJsonString:[self exampleJson]];
 		[self.navigationController pushViewController:controller animated:YES];
+		
 	}
 }
 

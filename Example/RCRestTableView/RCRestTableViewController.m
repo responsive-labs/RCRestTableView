@@ -22,6 +22,7 @@
 		self.tableView = [[RCRestTableView alloc] initWithJsonString:json];
 		UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(save:)];
 		self.navigationItem.rightBarButtonItem = save;
+		self.title = @"RCRestTableView - Custom";
 	}
 	return self;
 }
