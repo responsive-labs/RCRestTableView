@@ -8,7 +8,7 @@
 
 #import "RCExampleViewController.h"
 #import <RCRestTableView/RCRestTableView.h>
-#import <RCRestTableView/>
+#import "RCRestTableViewController.h"
 
 @interface RCExampleViewController ()
 @end
