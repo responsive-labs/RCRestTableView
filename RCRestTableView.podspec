@@ -15,10 +15,24 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/serluca/RCRestTableView.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/serluca'
 
+  # Platform setup
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
+  # Define default module
+  s.default_subspec = 'Core'
 
-  s.public_header_files = 'Pod/Classes/RCRestTableView.h', 'Pod/Classes/RCRestTableViewTypes.h','Pod/Classes/RCRestTableViewKeys.h'
+  ### Subspecs  
+  s.subspec 'Core' do |cs|
+    cs.dependency 'RCRestTableView/TableView'
+  end
+
+  s.subspec 'TableView' do |ts|
+    ts.source_files = 'Pod/Classes/**/*'
+    ts.public_header_files = 'Pod/Classes/RCRestTableView.h', 'Pod/Classes/RCRestTableViewTypes.h','Pod/Classes/RCRestTableViewKeys.h'
+  end
+
+  s.subspec 'Testing' do |ts|
+    ts.source_files  = "Pod/**/*.{h,m}"
+  end
 end

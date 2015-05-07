@@ -6,7 +6,7 @@ target 'RCRestTableView', :exclusive => true do
 end
 
 target 'Tests', :exclusive => true do
-  pod "RCRestTableView", :path => "../"
+  pod "RCRestTableView/Testing", :path => "../"
   pod 'Specta', '~> 0.5'
   pod 'Expecta'
 end
