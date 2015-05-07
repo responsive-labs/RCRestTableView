@@ -14,6 +14,7 @@
 @interface RCMultivalueCell()
 @property (nonatomic,strong) NSArray *values;
 @property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
+@property (nonatomic,strong) UIPopoverController *popover;
 @end
 
 @implementation RCMultivalueCell
@@ -58,7 +59,19 @@
 	}]distinctUntilChanged] subscribeNext:^(id x) {
 		UINavigationController *controller = (UINavigationController*)self.window.rootViewController;
 		RCUIMultivalueListController *listController = [[RCUIMultivalueListController alloc] initWithValues:self.values selectedValue:self.detailTextLabel.text];
-		[controller pushViewController:listController animated:YES];
+		
+		// If is an iPad display the view in a popover
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+			self.popover = [[UIPopoverController alloc] initWithContentViewController:listController];
+			[self.popover presentPopoverFromRect:self.frame
+										  inView:self.tableView
+						permittedArrowDirections:UIPopoverArrowDirectionAny
+										animated:YES];
+		}else{
+			[controller pushViewController:listController animated:YES];
+		}
+		
+		
 
 		@weakify(self)
 		[[RACObserve(listController, selectedValue) takeUntil:[listController rac_willDeallocSignal]] subscribeNext:^(NSString *newValue) {
