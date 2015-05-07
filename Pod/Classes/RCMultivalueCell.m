@@ -10,6 +10,7 @@
 #import "NSValue+RCRestTableVIew.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCUIMultivalueListController.h"
+#import "UIView+RCRestTableView.h"
 
 @interface RCMultivalueCell()
 @property (nonatomic,strong) NSArray *values;
@@ -58,7 +59,6 @@
 	[[[[self rac_signalForSelector:@selector(touchesBegan:withEvent:)] reduceEach:^(NSSet *touches, UIEvent *event) {
 		return [touches anyObject];
 	}]distinctUntilChanged] subscribeNext:^(id x) {
-		UINavigationController *controller = (UINavigationController*)self.window.rootViewController;
 		RCUIMultivalueListController *listController = [[RCUIMultivalueListController alloc] initWithValues:self.values selectedValue:self.detailTextLabel.text];
 		
 		// If is an iPad display the view in a popover
@@ -69,10 +69,15 @@
 						permittedArrowDirections:UIPopoverArrowDirectionAny
 										animated:YES];
 		}else{
+			UINavigationController *controller = [[self.tableView parentViewController] navigationController];
+			if (!controller || ![controller isKindOfClass:[UINavigationController class]]){
+#if DEBUG
+				NSLog(@"[RCRESTTABLEVIEW] Seems that your TableView is not in a UINavigationController");
+#endif
+				return;
+			}
 			[controller pushViewController:listController animated:YES];
 		}
-		
-		
 
 		@weakify(self)
 		[[RACObserve(listController, selectedValue) takeUntil:[listController rac_willDeallocSignal]] subscribeNext:^(NSString *newValue) {
