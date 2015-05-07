@@ -28,7 +28,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
-  RCRestTableView: 5724173f5a6cc322b4088eb48e9a5b2c015753be
+  RCRestTableView: c649c7ce3ed6bb7802f06d8312561e9f40dee1ed
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Specta: eb90708ed77569bbda089f8ead10bb99b8e9489e
 

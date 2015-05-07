@@ -21,18 +21,20 @@ Pod::Spec.new do |s|
 
   # Define default module
   s.default_subspec = 'Core'
+  s.source_files  = "Pod/Classes/**/*.{h,m}"
+  s.private_header_files = "Pod/Classes/**/*.h"
 
   ### Subspecs  
   s.subspec 'Core' do |cs|
     cs.dependency 'RCRestTableView/TableView'
   end
 
-  s.subspec 'TableView' do |ts|
-    ts.source_files = 'Pod/Classes/**/*'
-    ts.public_header_files = 'Pod/Classes/RCRestTableView.h', 'Pod/Classes/RCRestTableViewTypes.h','Pod/Classes/RCRestTableViewKeys.h'
+  s.subspec 'TableView' do |rs|
+    rs.public_header_files = 'Pod/Classes/RCRestTableView.h', 'Pod/Classes/RCRestTableViewTypes.h','Pod/Classes/RCRestTableViewKeys.h'
   end
 
   s.subspec 'Testing' do |ts|
-    ts.source_files  = "Pod/**/*.{h,m}"
+    ts.public_header_files  = "Pod/Classes/**/*.h"
   end
+
 end
