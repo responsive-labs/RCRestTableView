@@ -16,6 +16,7 @@
 	if (self) {
 		[self.detailTextLabel setTextAlignment:NSTextAlignmentLeft]; // Align left by default
 		[self installConstraints];
+		self.detailTextLabel.font = [UIFont systemFontOfSize:13.0];
 	}
 	return self;
 }

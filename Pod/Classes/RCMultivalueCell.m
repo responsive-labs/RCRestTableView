@@ -25,6 +25,7 @@
 		self.values = @[];
 		[self bindReactiveSignals];
 		[self installConstraints];
+		self.detailTextLabel.font = [UIFont systemFontOfSize:13.0];
 	}
 	return self;
 }

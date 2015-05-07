@@ -23,6 +23,7 @@
 		[self.detailTextLabel removeFromSuperview];
 		[self.contentView addSubview:self.textField];
 		[self installConstraints];
+		self.textField.font = [UIFont systemFontOfSize:13.0];
 	}
 	return self;
 }
