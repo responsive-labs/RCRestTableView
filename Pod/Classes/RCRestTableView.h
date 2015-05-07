@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RCRestTableViewTypes.h"
+#import "RCRestTableViewKeys.h"
 
 @interface RCRestTableView : UITableView
 
