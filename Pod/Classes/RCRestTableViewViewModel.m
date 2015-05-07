@@ -12,6 +12,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCRestTableViewCellViewModel.h"
 #import "RCRestTableViewCellAvailable.h"
+#import "RCRestTableViewTypes.h"
 
 @interface RCRestTableViewViewModel()
 @property (nonatomic,strong) RCRestTableStructure *structure;
@@ -56,15 +57,15 @@
 	NSString *type = [row objectForKey:kRCRestKeyCellType];
 	RCRestTableViewCellViewModel *cellViewModel;
 	
-	if ([type isEqualToString:@"UILabel"]){
+	if ([type isEqualToString:kRCRestTableViewCellTypeUIILabel]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUILabelCell cellIdentifier]];
-	}else if ([type isEqualToString:@"UITextField"]){
+	}else if ([type isEqualToString:kRCRestTableViewCellTypeUITextField]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUITextFieldCell cellIdentifier]];
-	}else if ([type isEqualToString:@"UIImageView"]){
+	}else if ([type isEqualToString:kRCRestTableViewCellTypeUIImageView]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUIImageViewCell cellIdentifier]];
-	}else if ([type isEqualToString:@"UISwitch"]){
+	}else if ([type isEqualToString:kRCRestTableViewCellTypeUISwitch]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUISwitchCell cellIdentifier]];
-	}else if ([type isEqualToString:@"Multivalue"]){
+	}else if ([type isEqualToString:kRCRestTableViewCellTypeMultivalue]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCMultivalueCell cellIdentifier]];
 	}
 	

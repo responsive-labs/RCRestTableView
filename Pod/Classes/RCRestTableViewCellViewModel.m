@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "NSString+RCRestTableView.h"
 #import "UIImage+RCRestTableView.h"
+#import "RCRestTableViewTypes.h"
 
 @interface RCRestTableViewCellViewModel()
 @property (nonatomic,readwrite) NSString *type;
@@ -35,7 +36,7 @@
 		self.value = [structure objectForKey:kRCRestKeyCellValue];
 		
 		// If is an UIImageCell convert the string in UIImage if possible
-		if ([self.type isEqualToString:@"UIImageView"]) {
+		if ([self.type isEqualToString:kRCRestTableViewCellTypeUIImageView]) {
 			self.value = [UIImage findImageWithValue:self.value];
 		}
 		
