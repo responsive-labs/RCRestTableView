@@ -49,8 +49,9 @@
 }
 
 - (id)viewModelForRowAtIndexPath:(NSIndexPath *)indexPath{
-	if ([self.lazyViewModels objectForKey:indexPath])
-		return [self.lazyViewModels objectForKey:indexPath];
+	NSString *indexPathKey = [NSString stringWithFormat:@"s%@r%@",@(indexPath.section),@(indexPath.row)];
+	if ([self.lazyViewModels objectForKey:indexPathKey])
+		return [self.lazyViewModels objectForKey:indexPathKey];
 	
 	NSDictionary *row = [self.structure rowAtIndexPath:indexPath];
 	
@@ -69,7 +70,7 @@
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCMultivalueCell cellIdentifier]];
 	}
 	
-	[self.lazyViewModels setObject:cellViewModel forKey:indexPath];
+	[self.lazyViewModels setObject:cellViewModel forKey:indexPathKey];
 	return cellViewModel;
 	
 }
