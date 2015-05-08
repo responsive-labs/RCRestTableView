@@ -14,6 +14,7 @@
 
 @interface RCMultivalueCell()
 @property (nonatomic,strong) NSArray *values;
+@property (nonatomic,strong) NSDictionary *helper;
 @property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
 @property (nonatomic,strong) UIPopoverController *popover;
 @end
@@ -59,7 +60,7 @@
 	[[[[self rac_signalForSelector:@selector(touchesBegan:withEvent:)] reduceEach:^(NSSet *touches, UIEvent *event) {
 		return [touches anyObject];
 	}]distinctUntilChanged] subscribeNext:^(id x) {
-		RCUIMultivalueListController *listController = [[RCUIMultivalueListController alloc] initWithValues:self.values selectedValue:self.detailTextLabel.text];
+		RCUIMultivalueListController *listController = [[RCUIMultivalueListController alloc] initWithValues:self.values selectedKey:self.viewModel.value];
 		
 		// If is an iPad display the view in a popover
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
@@ -80,10 +81,10 @@
 		}
 
 		@weakify(self)
-		[[RACObserve(listController, selectedValue) takeUntil:[listController rac_willDeallocSignal]] subscribeNext:^(NSString *newValue) {
+		[[RACObserve(listController, selectedKey) takeUntil:[listController rac_willDeallocSignal]] subscribeNext:^(NSString *newValue) {
 			@strongify(self)
 			[self.viewModel setValue:newValue];
-			[self.detailTextLabel setText:newValue];
+			[self.detailTextLabel setText:[self.helper valueForKey:newValue]];
 		}];
 	}];
 }
@@ -95,8 +96,15 @@
 	[self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	
 	self.textLabel.text = viewModel.title;
-	self.detailTextLabel.text = viewModel.value;
 	self.values = viewModel.values;
+	
+	// Build helper
+	NSMutableDictionary *mutableHelper = [NSMutableDictionary new];
+	for (NSDictionary *obj in viewModel.values) {
+		[mutableHelper addEntriesFromDictionary:obj];
+	}
+	self.helper = mutableHelper;
+	self.detailTextLabel.text = [self.helper valueForKey:viewModel.value];
 	
 	for (NSString *selectorString in [viewModel.typeProperties allKeys]) {
 		SEL selector = NSSelectorFromString(selectorString);
@@ -109,6 +117,5 @@
 		[inv invoke];
 	}
 }
-
 
 @end

@@ -10,8 +10,8 @@
 
 @interface RCUIMultivalueListController : UITableViewController
 
-@property (nonatomic,strong) NSString *selectedValue;
+@property (nonatomic,strong) NSString *selectedKey;
 
-- (instancetype)initWithValues:(NSArray*)values selectedValue:(NSString*)selectedValue;
+- (instancetype)initWithValues:(NSArray*)values selectedKey:(NSString*)selectedkey;
 
 @end

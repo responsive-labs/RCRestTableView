@@ -51,10 +51,10 @@
 				   "type" : "Multivalue",
 				   "title" : "Type",
 				   "AccessoryType" :	0,
-				   "value" : "Objective-C",
+				   "value" : "obj",
 				   "values" : [
-				   		"Objective-C",
-				   		"Swift",
+				   		{"obj" : "Objective-C"},
+				   		{"swf" : "Swift"}
 				   ],
 				   "identifier" : "type",
 			   },

@@ -82,13 +82,19 @@
 					<key>title</key>
 					<string>Type</string>
 					<key>value</key>
-					<string>Objective-C</string>
+					<string>obj</string>
 					<key>AccessoryType</key>
 					<integer>0</integer>
 					<key>values</key>
 					<array>
-						<string>Objective-C</string>
-						<string>Swift</string>
+						<dict>
+							<key>obj</key>
+							<string>Objective-C</string>
+						</dict>
+						<dict>
+							<key>sfw</key>
+							<string>Swift</string>
+						</dict>
 					</array>
 				</dict>
 			</array>

@@ -16,11 +16,11 @@
 
 @implementation RCUIMultivalueListController
 
-- (instancetype)initWithValues:(NSArray*)values selectedValue:(NSString*)selectedValue{
+- (instancetype)initWithValues:(NSArray*)values selectedKey:(NSString*)selectedkey{
 	self = [super initWithStyle:UITableViewStylePlain];
 	if (self){
 		self.values = values;
-		self.selectedValue = selectedValue;
+		self.selectedKey = selectedkey;
 		[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 	}
 	return self;
@@ -37,8 +37,14 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-	cell.textLabel.text = [self.values objectAtIndex:indexPath.row];
-	if ([[self.values objectAtIndex:indexPath.row] isEqualToString:self.selectedValue]) {
+	
+	NSDictionary *row = [self.values objectAtIndex:indexPath.row];
+	NSString *key = [[row allKeys] firstObject];
+	NSString *value = [[row allValues] firstObject];
+	
+	cell.textLabel.text = value;
+	
+	if ([key isEqualToString:self.selectedKey]) {
 		[cell setAccessoryType:UITableViewCellAccessoryCheckmark];
 	}else{
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
@@ -49,7 +55,10 @@
 
 #pragma mark <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	self.selectedValue = [self.values objectAtIndex:indexPath.row];
+	NSDictionary *row = [self.values objectAtIndex:indexPath.row];
+	NSString *key = [[row allKeys] firstObject];
+
+	self.selectedKey = key;
 	[self.tableView reloadData];
 }
 
