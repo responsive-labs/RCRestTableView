@@ -77,11 +77,25 @@
 
 - (NSDictionary*)values{
 	NSMutableDictionary *values = [NSMutableDictionary new];
-	for (RCRestTableViewCellViewModel *cellViewModel in [self.lazyViewModels allValues]) {
-		if ([cellViewModel userIdentifier]) {
-			[values setObject:cellViewModel.value forKey:cellViewModel.userIdentifier];
+	
+	for (NSInteger sectionIndex=0; sectionIndex<[[self.structure sections] count]; sectionIndex++) {
+		NSDictionary *section = [self.structure sectionAtIndex:sectionIndex];
+		NSString *sectionIdentifier = [section objectForKey:kRCRestKeySectionIdentifier];
+		NSMutableDictionary *valuesInSection = [NSMutableDictionary new];
+		
+		for (NSInteger rowIndex=0; rowIndex<[[self.structure rowsInSection:sectionIndex] count]; rowIndex++) {
+			RCRestTableViewCellViewModel *cellViewModel = [self viewModelForRowAtIndexPath:[NSIndexPath indexPathForItem:rowIndex inSection:sectionIndex]];
+			if ([cellViewModel userIdentifier]) {
+				[valuesInSection setObject:cellViewModel.value forKey:cellViewModel.userIdentifier];
+			}
+		}
+		if (sectionIdentifier){
+			[values setObject:valuesInSection forKey:sectionIdentifier];
+		}else{
+			[values addEntriesFromDictionary:valuesInSection];
 		}
 	}
+	
 	return values;
 }
 
