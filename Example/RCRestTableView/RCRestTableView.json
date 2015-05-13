@@ -58,6 +58,13 @@
 				   ],
 				   "identifier" : "type",
 			   },
+			   {
+				   "type" : "SZTextView",
+				   "AccessoryType" :	0,
+				   "SZTextView.placeholder" : "Text view",
+				   "identifier" : "TextView",
+				   "height" : 80,
+			   },
 			]
 		}
 	]

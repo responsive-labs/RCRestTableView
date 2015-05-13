@@ -14,5 +14,6 @@ static NSString * const kRCRestTableViewCellTypeUITextField = @"UITextField";
 static NSString * const kRCRestTableViewCellTypeUIImageView = @"UIImageView";
 static NSString * const kRCRestTableViewCellTypeUISwitch = @"UISwitch";
 static NSString * const kRCRestTableViewCellTypeMultivalue = @"Multivalue";
+static NSString * const kRCRestTableViewCellTypeSZTextView = @"SZTextView";
 
 #endif

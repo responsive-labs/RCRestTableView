@@ -12,3 +12,4 @@
 #import "RCUIImageViewCell.h"
 #import "RCUISwitchCell.h"
 #import "RCMultivalueCell.h"
+#import "RCSZTextViewCell.h"

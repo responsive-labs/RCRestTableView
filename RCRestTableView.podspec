@@ -31,6 +31,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'TableView' do |rs|
     rs.public_header_files = 'Pod/Classes/RCRestTableView.h', 'Pod/Classes/RCRestTableViewTypes.h','Pod/Classes/RCRestTableViewKeys.h'
+    rs.dependency "ReactiveCocoa", '~> 2.5'
+    rs.dependency "SZTextView"
   end
 
   s.subspec 'Testing' do |ts|

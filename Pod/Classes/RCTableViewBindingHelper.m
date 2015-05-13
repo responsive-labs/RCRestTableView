@@ -36,6 +36,7 @@
 		[self.tableView registerClass:[RCUIImageViewCell class] forCellReuseIdentifier:[RCUIImageViewCell cellIdentifier]];
 		[self.tableView registerClass:[RCUISwitchCell class] forCellReuseIdentifier:[RCUISwitchCell cellIdentifier]];
 		[self.tableView registerClass:[RCMultivalueCell class] forCellReuseIdentifier:[RCMultivalueCell cellIdentifier]];
+		[self.tableView registerClass:[RCSZTextViewCell class] forCellReuseIdentifier:[RCSZTextViewCell cellIdentifier]];
 		
 		_tableView.dataSource = self;
 		_tableView.delegate = self;

@@ -4,7 +4,9 @@ PODS:
     - RCRestTableView/Core (= 0.1.0)
   - RCRestTableView/Core (0.1.0):
     - RCRestTableView/TableView
-  - RCRestTableView/TableView (0.1.0)
+  - RCRestTableView/TableView (0.1.0):
+    - ReactiveCocoa (~> 2.5)
+    - SZTextView
   - RCRestTableView/Testing (0.1.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -14,12 +16,12 @@ PODS:
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
   - Specta (0.5.0)
+  - SZTextView (1.2.1)
 
 DEPENDENCIES:
   - Expecta
   - RCRestTableView (from `../`)
   - RCRestTableView/Testing (from `../`)
-  - ReactiveCocoa (~> 2.5)
   - Specta (~> 0.5)
 
 EXTERNAL SOURCES:
@@ -28,8 +30,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
-  RCRestTableView: c649c7ce3ed6bb7802f06d8312561e9f40dee1ed
+  RCRestTableView: acfbb9d2ccdf8445d97827791f1835eee7396715
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Specta: eb90708ed77569bbda089f8ead10bb99b8e9489e
+  SZTextView: 906df45afd3c1b24fc5252088d5ef8061513c238
 
-COCOAPODS: 0.36.4
+COCOAPODS: 0.37.1
