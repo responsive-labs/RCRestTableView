@@ -58,7 +58,7 @@
 	NSString *type = [row objectForKey:kRCRestKeyCellType];
 	RCRestTableViewCellViewModel *cellViewModel;
 	
-	if ([type isEqualToString:kRCRestTableViewCellTypeUIILabel]){
+	if ([type isEqualToString:kRCRestTableViewCellTypeUILabel]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUILabelCell cellIdentifier]];
 	}else if ([type isEqualToString:kRCRestTableViewCellTypeUITextField]){
 		cellViewModel = [[RCRestTableViewCellViewModel alloc] initWithStructure:row identifier:[RCUITextFieldCell cellIdentifier]];

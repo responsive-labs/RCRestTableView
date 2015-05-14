@@ -9,7 +9,7 @@
 #ifndef Pods_RCRestTableViewTypes_h
 #define Pods_RCRestTableViewTypes_h
 
-static NSString * const kRCRestTableViewCellTypeUIILabel = @"UILabel";
+static NSString * const kRCRestTableViewCellTypeUILabel = @"UILabel";
 static NSString * const kRCRestTableViewCellTypeUITextField = @"UITextField";
 static NSString * const kRCRestTableViewCellTypeUIImageView = @"UIImageView";
 static NSString * const kRCRestTableViewCellTypeUISwitch = @"UISwitch";
