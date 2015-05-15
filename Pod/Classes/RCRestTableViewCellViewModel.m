@@ -33,7 +33,9 @@
 		self.type = [structure objectForKey:kRCRestKeyCellType];
 		self.title = [structure objectForKey:kRCRestKeyCellTitle];
 		self.cellIdentifier = identifier;
-		self.value = [structure objectForKey:kRCRestKeyCellValue];
+		
+		if (![[structure objectForKey:kRCRestKeyCellValue] isKindOfClass:[NSNull class]])
+			self.value = [structure objectForKey:kRCRestKeyCellValue];
 		
 		// If is an UIImageCell convert the string in UIImage if possible
 		if ([self.type isEqualToString:kRCRestTableViewCellTypeUIImageView]) {
