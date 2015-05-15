@@ -26,8 +26,9 @@
 	if (self) {
 		self.values = @[];
 		[self bindReactiveSignals];
-		[self installConstraints];
+		self.detailTextLabel.text = @" "; // It is an Hack that solve a layout issue
 		self.detailTextLabel.font = [UIFont systemFontOfSize:13.0];
+		[self installConstraints];
 	}
 	return self;
 }
@@ -50,7 +51,7 @@
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:.35 constant:0]];
 	
 	// Detail constraints
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.textLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:10]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.detailTextLabel attribute:NSLayoutAttributeLeading multiplier:1 constant:10]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-20]];
@@ -83,6 +84,7 @@
 		@weakify(self)
 		[[RACObserve(listController, selectedKey) takeUntil:[listController rac_willDeallocSignal]] subscribeNext:^(NSString *newValue) {
 			@strongify(self)
+			if (!newValue) return;
 			[self.viewModel setValue:newValue];
 			[self.detailTextLabel setText:[self.helper valueForKey:newValue]];
 		}];
@@ -104,7 +106,10 @@
 		[mutableHelper addEntriesFromDictionary:obj];
 	}
 	self.helper = mutableHelper;
-	self.detailTextLabel.text = [self.helper valueForKey:viewModel.value];
+	
+	if ([self.helper valueForKey:viewModel.value]) {
+		self.detailTextLabel.text = [self.helper valueForKey:viewModel.value];
+	}
 	
 	for (NSString *selectorString in [viewModel.typeProperties allKeys]) {
 		SEL selector = NSSelectorFromString(selectorString);
