@@ -87,7 +87,7 @@
 		
 		for (NSInteger rowIndex=0; rowIndex<[[self.structure rowsInSection:sectionIndex] count]; rowIndex++) {
 			RCRestTableViewCellViewModel *cellViewModel = [self viewModelForRowAtIndexPath:[NSIndexPath indexPathForItem:rowIndex inSection:sectionIndex]];
-			if ([cellViewModel userIdentifier]) {
+			if ([cellViewModel userIdentifier] && [cellViewModel value]) {
 				[valuesInSection setObject:cellViewModel.value forKey:cellViewModel.userIdentifier];
 			}
 		}
