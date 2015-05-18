@@ -40,24 +40,12 @@
 	return self;
 }
 
-- (instancetype)init{
-	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
-	return nil;
-}
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
-	return nil;
-}
-- (instancetype)initWithFrame:(CGRect)frame{
-	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
-	return nil;
-}
-- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
-	[NSException raise:@"Invalid initializer" format:@"Please use initWithJsonString: instead"];
-	return nil;
-}
 
 - (NSDictionary*)values{
 	return [self.viewModel values];
+}
+
+- (void)setValues:(NSDictionary*)values{
+	[self.viewModel setValues:values];
 }
 @end

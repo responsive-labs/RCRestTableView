@@ -28,4 +28,6 @@
  */
 - (NSDictionary*)values;
 
+- (void)setValues:(NSDictionary*)values;
+
 @end

@@ -101,4 +101,18 @@
 	return values;
 }
 
+- (void)setValues:(NSDictionary*)values{
+	for (NSInteger sectionIndex=0; sectionIndex<[[self.structure sections] count]; sectionIndex++) {
+		NSDictionary *section = [self.structure sectionAtIndex:sectionIndex];
+		NSString *sectionIdentifier = [section objectForKey:kRCRestKeySectionIdentifier];
+		NSDictionary *valuesForSection = [values objectForKey:sectionIdentifier] ?: values;
+		
+		for (NSInteger rowIndex=0; rowIndex<[[self.structure rowsInSection:sectionIndex] count]; rowIndex++) {
+			RCRestTableViewCellViewModel *cellViewModel = [self viewModelForRowAtIndexPath:[NSIndexPath indexPathForItem:rowIndex inSection:sectionIndex]];
+			if ([cellViewModel userIdentifier] && [valuesForSection objectForKey:[cellViewModel userIdentifier]]) {
+				[cellViewModel setValue:[valuesForSection objectForKey:[cellViewModel userIdentifier]]];
+			}
+		}
+	}
+}
 @end
