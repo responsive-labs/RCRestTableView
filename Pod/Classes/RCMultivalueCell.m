@@ -68,7 +68,7 @@
 			self.popover = [[UIPopoverController alloc] initWithContentViewController:listController];
 			[self.popover presentPopoverFromRect:self.frame
 										  inView:self.tableView
-						permittedArrowDirections:UIPopoverArrowDirectionAny
+						permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
 										animated:YES];
 		}else{
 			UINavigationController *controller = [[self.tableView parentViewController] navigationController];
