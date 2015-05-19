@@ -21,6 +21,9 @@
 - (NSString *)titleForHeaderInSection:(NSInteger)section;
 - (NSString *)titleForFooterInSection:(NSInteger)section;
 
+
+- (void)setDictionaryStructure:(NSDictionary*)structure;
+
 /**
  *  Get the current values of the fields where the property `identifier` is specified
  *
@@ -29,5 +32,5 @@
 - (NSDictionary*)values;
 
 - (void)setValues:(NSDictionary*)values;
-
+- (void)setMultivaluesItems:(NSArray*)items forCellIdentifier:(NSString*)identifier;
 @end

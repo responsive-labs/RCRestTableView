@@ -40,6 +40,20 @@
 	return self;
 }
 
+#pragma mark - Actions
+- (void)setJsonStructure:(NSString*)json{
+	NSDictionary *dictionary = [NSDictionary initWithJsonString:json];
+	if (!dictionary) [NSException raise:@"Invalid json format" format:@"Please provide a correct json"];
+	self.viewModel = [[RCRestTableViewViewModel alloc] initWithDictionary:dictionary];
+	self.bindingHelper = [RCTableViewBindingHelper bindingHelperForTableView:self viewModel:self.viewModel];
+	[self reloadData];
+}
+
+- (void)setDictionaryStructure:(NSDictionary*)dictionary{
+	self.viewModel = [[RCRestTableViewViewModel alloc] initWithDictionary:dictionary];
+	self.bindingHelper = [RCTableViewBindingHelper bindingHelperForTableView:self viewModel:self.viewModel];
+	[self reloadData];
+}
 
 - (NSDictionary*)values{
 	return [self.viewModel values];
@@ -47,5 +61,10 @@
 
 - (void)setValues:(NSDictionary*)values{
 	[self.viewModel setValues:values];
+	[self reloadData];
+}
+- (void)setMultivaluesItems:(NSArray*)items forCellIdentifier:(NSString*)identifier{
+	[self.viewModel setMultivaluesItems:items forCellIdentifier:identifier];
+	[self reloadData];
 }
 @end

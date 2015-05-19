@@ -24,8 +24,7 @@
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary{
 	self = [super init];
 	if (self){
-		self.structure = [[RCRestTableStructure alloc] initWithDictionary:dictionary];
-		self.lazyViewModels = [NSMutableDictionary new];
+		[self setDictionaryStructure:dictionary];
 	}
 	return self;
 }
@@ -77,6 +76,11 @@
 	
 }
 
+- (void)setDictionaryStructure:(NSDictionary*)structure{
+	self.structure = [[RCRestTableStructure alloc] initWithDictionary:structure];
+	self.lazyViewModels = [NSMutableDictionary new];
+}
+
 - (NSDictionary*)values{
 	NSMutableDictionary *values = [NSMutableDictionary new];
 	
@@ -111,6 +115,16 @@
 			RCRestTableViewCellViewModel *cellViewModel = [self viewModelForRowAtIndexPath:[NSIndexPath indexPathForItem:rowIndex inSection:sectionIndex]];
 			if ([cellViewModel userIdentifier] && [valuesForSection objectForKey:[cellViewModel userIdentifier]]) {
 				[cellViewModel setValue:[valuesForSection objectForKey:[cellViewModel userIdentifier]]];
+			}
+		}
+	}
+}
+- (void)setMultivaluesItems:(NSArray*)items forCellIdentifier:(NSString*)identifier{
+	for (NSInteger sectionIndex=0; sectionIndex<[[self.structure sections] count]; sectionIndex++) {		
+		for (NSInteger rowIndex=0; rowIndex<[[self.structure rowsInSection:sectionIndex] count]; rowIndex++) {
+			RCRestTableViewCellViewModel *cellViewModel = [self viewModelForRowAtIndexPath:[NSIndexPath indexPathForItem:rowIndex inSection:sectionIndex]];
+			if ([[cellViewModel userIdentifier] isEqualToString:identifier] && [cellViewModel.cellIdentifier isEqualToString:[RCMultivalueCell cellIdentifier]]) {
+				[cellViewModel setValues:[NSMutableArray arrayWithArray:items]];
 			}
 		}
 	}

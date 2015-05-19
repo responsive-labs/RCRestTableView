@@ -16,7 +16,6 @@
 @interface RCRestTableViewCellViewModel()
 @property (nonatomic,readwrite) NSString *type;
 @property (nonatomic,readwrite) NSString *title;
-@property (nonatomic,readwrite) NSMutableArray *values;
 @property (nonatomic,readwrite) NSString *cellIdentifier;
 @property (nonatomic,readwrite) NSString *userIdentifier;
 @property (nonatomic,readwrite) CGFloat cellHeight;

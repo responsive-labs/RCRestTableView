@@ -15,6 +15,10 @@
 - (instancetype)initWithJsonString:(NSString*)json;
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
+- (void)setJsonStructure:(NSString*)json;
+- (void)setDictionaryStructure:(NSDictionary*)dictionary;
+- (void)setMultivaluesItems:(NSArray*)items forCellIdentifier:(NSString*)identifier;
+
 /**
  *  Get the current fields values where the property `identifier` is specified
  *
