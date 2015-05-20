@@ -17,6 +17,7 @@
 @property (nonatomic,strong) NSDictionary *helper;
 @property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
 @property (nonatomic,strong) UIPopoverController *popover;
+@property (nonatomic,strong) UILabel *multivalueLabel;
 @end
 
 @implementation RCMultivalueCell
@@ -26,8 +27,10 @@
 	if (self) {
 		self.values = @[];
 		[self bindReactiveSignals];
-		self.detailTextLabel.text = @" "; // It is an Hack that solve a layout issue
-		self.detailTextLabel.font = [UIFont systemFontOfSize:13.0];
+		self.multivalueLabel = [[UILabel alloc] init];
+		[self.multivalueLabel setTextAlignment:NSTextAlignmentRight];
+		self.multivalueLabel.font = [UIFont systemFontOfSize:13.0];
+		[self.contentView addSubview:self.multivalueLabel];
 		[self installConstraints];
 	}
 	return self;
@@ -36,7 +39,7 @@
 - (void)installConstraints{
 	self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 	self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
-	self.detailTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
+	self.multivalueLabel.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	// ContentView constraints
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:10]];
@@ -51,10 +54,10 @@
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:.35 constant:0]];
 	
 	// Detail constraints
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.detailTextLabel attribute:NSLayoutAttributeLeading multiplier:1 constant:10]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.detailTextLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-20]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.multivalueLabel attribute:NSLayoutAttributeLeading multiplier:1 constant:10]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-25]];
 }
 
 - (void)bindReactiveSignals{
@@ -86,7 +89,7 @@
 			@strongify(self)
 			if (!newValue) return;
 			[self.viewModel setValue:newValue];
-			[self.detailTextLabel setText:[self.helper valueForKey:newValue]];
+			[self.multivalueLabel setText:[self.helper valueForKey:newValue]];
 		}];
 	}];
 }
@@ -108,16 +111,16 @@
 	self.helper = mutableHelper;
 	
 	if ([self.helper valueForKey:viewModel.value]) {
-		self.detailTextLabel.text = [self.helper valueForKey:viewModel.value];
+		self.multivalueLabel.text = [self.helper valueForKey:viewModel.value];
 	}
 	
 	for (NSString *selectorString in [viewModel.typeProperties allKeys]) {
 		SEL selector = NSSelectorFromString(selectorString);
-		NSMethodSignature *methodSignature = [self.detailTextLabel methodSignatureForSelector:selector];
+		NSMethodSignature *methodSignature = [self.multivalueLabel methodSignatureForSelector:selector];
 		id value = [viewModel.typeProperties objectForKey:selectorString];
 		NSInvocation *inv = [NSInvocation invocationWithMethodSignature:methodSignature];
 		[inv setSelector:selector];
-		[inv setTarget:self.detailTextLabel];
+		[inv setTarget:self.multivalueLabel];
 		[value setAsArgumentForInvocation:inv atIndex:2];
 		[inv invoke];
 	}
