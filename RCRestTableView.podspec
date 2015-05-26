@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "RCRestTableView"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "A short description of RCRestTableView."
   s.description      = <<-DESC
                        An optional longer description of RCRestTableView
@@ -19,25 +19,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  # Define default module
-  s.default_subspec = 'Core'
+  
   s.source_files  = "Pod/Classes/**/*.{h,m}"
-
-  ### Subspecs  
-  s.subspec 'Core' do |cs|
-    cs.dependency 'RCRestTableView/TableView'
-  end
-
-  s.subspec 'TableView' do |rs|
-    rs.public_header_files = 'Pod/Classes/RCRestTableView.h', 'Pod/Classes/RCRestTableViewTypes.h','Pod/Classes/RCRestTableViewKeys.h'
-    rs.dependency "ReactiveCocoa", '~> 2.5'
-    rs.dependency "SZTextView"
-  end
-
-  # s.subspec 'Testing' do |ts|
-  #   ts.public_header_files  = "Pod/Classes/**/*.h"
-  #   ts.dependency "ReactiveCocoa", '~> 2.5'
-  #   ts.dependency "SZTextView"
-  # end
+  s.public_header_files = 'Pod/Classes/RCRestTableView.h', 'Pod/Classes/RCRestTableViewTypes.h','Pod/Classes/RCRestTableViewKeys.h'
+  s.dependency "ReactiveCocoa", '~> 2.5'
+  s.dependency "SZTextView"
 
 end
