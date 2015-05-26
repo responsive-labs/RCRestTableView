@@ -22,7 +22,6 @@ Pod::Spec.new do |s|
   # Define default module
   s.default_subspec = 'Core'
   s.source_files  = "Pod/Classes/**/*.{h,m}"
-  s.private_header_files = "Pod/Classes/**/*.h"
 
   ### Subspecs  
   s.subspec 'Core' do |cs|
@@ -35,10 +34,10 @@ Pod::Spec.new do |s|
     rs.dependency "SZTextView"
   end
 
-  s.subspec 'Testing' do |ts|
-    ts.public_header_files  = "Pod/Classes/**/*.h"
-    ts.dependency "ReactiveCocoa", '~> 2.5'
-    ts.dependency "SZTextView"
-  end
+  # s.subspec 'Testing' do |ts|
+  #   ts.public_header_files  = "Pod/Classes/**/*.h"
+  #   ts.dependency "ReactiveCocoa", '~> 2.5'
+  #   ts.dependency "SZTextView"
+  # end
 
 end
