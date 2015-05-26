@@ -37,6 +37,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Testing' do |ts|
     ts.public_header_files  = "Pod/Classes/**/*.h"
+    ts.dependency "ReactiveCocoa", '~> 2.5'
+    ts.dependency "SZTextView"
   end
 
 end
