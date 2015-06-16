@@ -28,7 +28,7 @@
 		self.values = @[];
 		[self bindReactiveSignals];
 		self.multivalueLabel = [[UILabel alloc] init];
-		[self.multivalueLabel setTextAlignment:NSTextAlignmentRight];
+		[self.multivalueLabel setTextAlignment:NSTextAlignmentLeft];
 		self.multivalueLabel.font = [UIFont systemFontOfSize:13.0];
 		[self.contentView addSubview:self.multivalueLabel];
 		[self installConstraints];
@@ -54,10 +54,10 @@
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:.35 constant:0]];
 	
 	// Detail constraints
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.multivalueLabel attribute:NSLayoutAttributeLeading multiplier:1 constant:10]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.textLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:10]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-25]];
+	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-20]];
 }
 
 - (void)bindReactiveSignals{
