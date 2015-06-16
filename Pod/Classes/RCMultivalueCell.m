@@ -62,7 +62,7 @@
 }
 
 - (void)bindReactiveSignals{
-	[[[[self rac_signalForSelector:@selector(touchesBegan:withEvent:)] reduceEach:^(NSSet *touches, UIEvent *event) {
+	[[[[self rac_signalForSelector:@selector(touchesEnded:withEvent:)] reduceEach:^(NSSet *touches, UIEvent *event) {
 		return [touches anyObject];
 	}]distinctUntilChanged] subscribeNext:^(id x) {
 		RCUIMultivalueListController *listController = [[RCUIMultivalueListController alloc] initWithValues:self.values selectedKey:self.viewModel.value];
