@@ -17,7 +17,7 @@
 @property (nonatomic,strong) NSDictionary *helper;
 @property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
 @property (nonatomic,strong) UIPopoverController *popover;
-@property (nonatomic,strong) UILabel *multivalueLabel;
+@property (nonatomic,strong) UITextField *multivalueLabel;
 @end
 
 @implementation RCMultivalueCell
@@ -27,7 +27,8 @@
 	if (self) {
 		self.values = @[];
 		[self bindReactiveSignals];
-		self.multivalueLabel = [[UILabel alloc] init];
+		self.multivalueLabel = [[UITextField alloc] init];
+		[self.multivalueLabel setEnabled:NO];
 		[self.multivalueLabel setTextAlignment:NSTextAlignmentLeft];
 		self.multivalueLabel.font = [UIFont systemFontOfSize:13.0];
 		[self.contentView addSubview:self.multivalueLabel];

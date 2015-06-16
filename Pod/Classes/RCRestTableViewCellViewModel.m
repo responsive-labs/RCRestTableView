@@ -65,7 +65,7 @@
 				}
 			}else if([pathComponents count] == 2 && [pathComponents[0] isEqualToString:self.type]){
 				// Is a type property
-				Class className = NSClassFromString(self.type);
+				Class className = [self.type isEqualToString:@"Multivalue"] ? [UITextField class] :  NSClassFromString(self.type);
 				NSString *selectorString = [NSString stringWithFormat:@"set%@:",[pathComponents[1] uppercaseFirstLetter]];
 				if ([[className class] instancesRespondToSelector:NSSelectorFromString(selectorString)]) {
 					[self.typeProperties setValue:[mutableStructure objectForKey:key] forKey:selectorString];
