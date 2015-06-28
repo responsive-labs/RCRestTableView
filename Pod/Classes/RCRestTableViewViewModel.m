@@ -129,4 +129,19 @@
 		}
 	}
 }
+- (void)setPropertyValue:(id)value withKey:(NSString*)key forCellIdentifier:(NSString*)cellIdentifier withSectionIdentifier:(NSString*)sectionIdentifier{
+	if (!key || !value)
+		[NSException raise:NSInvalidArgumentException format:@"key and value must be not nil"];
+	if (!cellIdentifier)
+		[NSException raise:NSInvalidArgumentException format:@"cellIdentifier must be not nil"];
+	if (!sectionIdentifier && [self numberOfSections]>1)
+		[NSException raise:NSInvalidArgumentException format:@"cellIdentifier must be not nil"];
+	
+	NSIndexPath *indexPath = [self.structure indexPathOfRowWithIdentifier:cellIdentifier sectionIdentifier:sectionIdentifier];
+	if (!indexPath)
+		[NSException raise:NSInvalidArgumentException format:@"Row not found"];
+	
+	RCRestTableViewCellViewModel *cellViewModel = [self viewModelForRowAtIndexPath:indexPath];
+	[cellViewModel setPropertyWithKey:key value:value];
+}
 @end

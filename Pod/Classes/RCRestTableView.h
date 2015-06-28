@@ -50,17 +50,17 @@
  *  Set a property programmatically.
  *
  *  @param value             The property value
+ *	@param key							 The key
  *  @param cellIdentifier    The cell identifier
  *  @param sectionIdentifier The section identifier
  *	
- *	@attetion cellIdentifier must be not nil, sectionIdentifier can be nil instead
- *	@note when sectionIdentifier nil, RCRestTableView assumes the first section
+ *	@attention cellIdentifier must be not nil, sectionIdentifier can be nil instead
+ *	@attention type, identifier are not supported
+ *	@note sectionIdentifier can be nil only when the table has only one section
  *
  *  @throws NSInvalidArgumentException
  */
-- (void)setPropertyValue:(id)value forCellIdentifier:(NSString*)cellIdentifier withSectionIdentifier:(NSString*)sectionIdentifier;
-
-- (void)setMultivaluesItems:(NSArray*)items forCellIdentifier:(NSString*)identifier;
+- (void)setPropertyValue:(id)value withKey:(NSString *)key forCellIdentifier:(NSString *)cellIdentifier withSectionIdentifier:(NSString *)sectionIdentifier;
 
 /**
  *  Get the current fields values where the property `identifier` is specified.

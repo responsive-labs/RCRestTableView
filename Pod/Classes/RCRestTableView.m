@@ -63,6 +63,11 @@
 	[self.viewModel setValues:values];
 	[self reloadData];
 }
+
+- (void)setPropertyValue:(id)value withKey:(NSString *)key forCellIdentifier:(NSString *)cellIdentifier withSectionIdentifier:(NSString *)sectionIdentifier{
+	[self.viewModel setPropertyValue:value withKey:key forCellIdentifier:cellIdentifier withSectionIdentifier:sectionIdentifier];
+	[self reloadData];
+}
 - (void)setMultivaluesItems:(NSArray*)items forCellIdentifier:(NSString*)identifier{
 	[self.viewModel setMultivaluesItems:items forCellIdentifier:identifier];
 	[self reloadData];

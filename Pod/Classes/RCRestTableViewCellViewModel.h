@@ -33,4 +33,13 @@
 	
 - (instancetype)initWithStructure:(NSDictionary*)structure identifier:(NSString*)identifier;
 
+/**
+ *  Set a new cell property with key
+ *
+ *  @param key   The key
+ *  @param value The value
+ *	@note require [UITableView reloadData]
+ */
+- (void)setPropertyWithKey:(NSString*)key value:(id)value;
+
 @end

@@ -54,25 +54,53 @@
 		self.typeProperties = [NSMutableDictionary new];
 		
 		for (NSString *key in [mutableStructure allKeys]) {
-			NSArray *pathComponents = [key componentsSeparatedByString:@"."];
-			if ([pathComponents count] > 2) continue; // Currently we support only the first node
-			
-			if ([pathComponents count] == 1) {
-				// Is a cell property
-				NSString *selectorString = [NSString stringWithFormat:@"set%@:",[key uppercaseFirstLetter]];
-				if ([[UITableViewCell class] instancesRespondToSelector:NSSelectorFromString(selectorString)]) {
-					[self.cellProperties setValue:[mutableStructure objectForKey:key] forKey:selectorString];
-				}
-			}else if([pathComponents count] == 2 && [pathComponents[0] isEqualToString:self.type]){
-				// Is a type property
-				Class className = [self.type isEqualToString:@"Multivalue"] ? [UITextField class] :  NSClassFromString(self.type);
-				NSString *selectorString = [NSString stringWithFormat:@"set%@:",[pathComponents[1] uppercaseFirstLetter]];
-				if ([[className class] instancesRespondToSelector:NSSelectorFromString(selectorString)]) {
-					[self.typeProperties setValue:[mutableStructure objectForKey:key] forKey:selectorString];
-				}
-			}
+			id value = [mutableStructure objectForKey:key];
+			[self setPropertyWithKey:key value:value];
 		}
 	}
 	return self;
+}
+
+- (void)setPropertyWithKey:(NSString*)key value:(id)value{
+	// Property type Title
+	if ([[key lowercaseString] isEqualToString:kRCRestKeyCellTitle] && [value isKindOfClass:[NSString class]]){
+		self.title = value;
+		return;
+	}
+	// Property type Height
+	if ([[key lowercaseString] isEqualToString:kRCRestKeyCellHeight] && [value isKindOfClass:[NSNumber class]]){
+		self.cellHeight = [value doubleValue];
+		return;
+	}
+	// Property type value
+	if ([[key lowercaseString] isEqualToString:kRCRestKeyCellValue]){
+		self.value = value;
+		if ([self.type isEqualToString:kRCRestTableViewCellTypeUIImageView])
+			self.value = [UIImage findImageWithValue:self.value];
+		return;
+	}
+	// Property type Multivalue
+	if ([[key lowercaseString] isEqualToString:kRCRestKeyCellValues] && [value isKindOfClass:[NSArray class]]){
+		self.values = value;
+		return;
+	}
+	
+	NSArray *pathComponents = [key componentsSeparatedByString:@"."];
+	if ([pathComponents count] > 2) return; // Currently we support only the first node
+	
+	if ([pathComponents count] == 1) {
+		// Is a cell property
+		NSString *selectorString = [NSString stringWithFormat:@"set%@:",[key uppercaseFirstLetter]];
+		if ([[UITableViewCell class] instancesRespondToSelector:NSSelectorFromString(selectorString)]) {
+			[self.cellProperties setValue:value forKey:selectorString];
+		}
+	}else if([pathComponents count] == 2 && [pathComponents[0] isEqualToString:self.type]){
+		// Is a type property
+		Class className = [self.type isEqualToString:@"Multivalue"] ? [UITextField class] :  NSClassFromString(self.type);
+		NSString *selectorString = [NSString stringWithFormat:@"set%@:",[pathComponents[1] uppercaseFirstLetter]];
+		if ([[className class] instancesRespondToSelector:NSSelectorFromString(selectorString)]) {
+			[self.typeProperties setValue:value forKey:selectorString];
+		}
+	}
 }
 @end

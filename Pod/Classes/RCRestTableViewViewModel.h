@@ -33,4 +33,5 @@
 
 - (void)setValues:(NSDictionary*)values;
 - (void)setMultivaluesItems:(NSArray*)items forCellIdentifier:(NSString*)identifier;
+- (void)setPropertyValue:(id)value withKey:(NSString*)key forCellIdentifier:(NSString*)cellIdentifier withSectionIdentifier:(NSString*)sectionIdentifier;
 @end

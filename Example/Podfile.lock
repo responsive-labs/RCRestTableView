@@ -1,6 +1,6 @@
 PODS:
   - Expecta (1.0.0)
-  - RCRestTableView (0.1.1):
+  - RCRestTableView (0.1.2):
     - ReactiveCocoa (~> 2.5)
     - SZTextView
   - ReactiveCocoa (2.5):
@@ -24,9 +24,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
-  RCRestTableView: cea9d1c0a58038a8a8b603dfcf65b278ed6633db
+  RCRestTableView: 654c84005e0b016d14b6e9b006b7612e057f1b62
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Specta: eb90708ed77569bbda089f8ead10bb99b8e9489e
   SZTextView: 906df45afd3c1b24fc5252088d5ef8061513c238
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2
