@@ -260,11 +260,6 @@
 				CLASSPREFIX = RC;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Luca Serpico";
-				TargetAttributes = {
-					6003F5AD195388D20070C39A = {
-						TestTargetID = 6003F589195388D20070C39A;
-					};
-				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "RCRestTableView" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -531,7 +526,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 148EF3383944DE3858C8DA58 /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RCRestTableView.app/RCRestTableView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -546,7 +540,6 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../Pod/**";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -556,7 +549,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58CDCA98744238F4407CDED3 /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RCRestTableView.app/RCRestTableView";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -567,7 +559,6 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../Pod/**";
 				WRAPPER_EXTENSION = xctest;
 			};
