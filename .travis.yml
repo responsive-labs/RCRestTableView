@@ -1,7 +1,7 @@
 language: objective-c
 before_install: rvm use $RVM_RUBY_VERSION
 install:
-- gem bundle install --without=documentation 
+- gem bundle install
 - pod install --project-directory=Example
 script: rake test
 after_success: slather
