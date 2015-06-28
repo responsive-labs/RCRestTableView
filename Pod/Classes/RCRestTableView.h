@@ -74,7 +74,7 @@
  *
  *  @param values A dictionary with values
  *  @attention This method uses the same logic of the getter above.
- *	@note You
+ *	@note You can use this method instead of `setPropertyValue:withKey:forCellIdentifier:withSectionIdentifier:` if you want to set more values at the same time.
  */
 - (void)setValues:(NSDictionary*)values;
 
