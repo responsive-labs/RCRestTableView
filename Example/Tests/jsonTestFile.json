@@ -3,12 +3,14 @@
 		{
 	 		"section_header" : "section header name 1",
 	 		"section_footer" : "section footer name 1",
+			"identifier" : "first_section",
 	 		"rows" : [
 			   {
 				   "type" : "UILabel",
 				   "title" : "item label",
 				   "AccessoryType" :	0,
-				   "value" : "Label"
+				   "value" : "Label",
+					 "identifier" : "first_row"
 			   },
 			   {
 				   "type" : "UILabel",

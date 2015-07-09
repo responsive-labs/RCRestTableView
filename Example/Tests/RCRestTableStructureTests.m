@@ -65,6 +65,20 @@ describe(@"Structure", ^{
 		expect([emptyStructure sections]).to.beNil();
 		expect([emptyStructure rowsInSection:0]).to.beNil();
 	});
+	
+	it(@"indexOfSectionWithIdentifier", ^{
+		expect([structure indexOfSectionWithIdentifier:@"first_section"]).to.equal(0);
+	});
+	
+	it(@"indexOfRowWithIdentifier:inSection:", ^{
+		expect([structure indexOfRowWithIdentifier:@"first_row" inSection:0]).to.equal(0);
+	});
+	
+	it(@"indexPathOfRowWithIdentifier:sectionIdentifier:", ^{
+		NSIndexPath *expectedIndexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+		expect([structure indexPathOfRowWithIdentifier:@"first_row" sectionIdentifier:@"first_section"]).to.equal(expectedIndexPath);
+	});
+	
 });
 
 SpecEnd
