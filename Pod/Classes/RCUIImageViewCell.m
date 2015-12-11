@@ -25,6 +25,7 @@
 @interface RCUIImageViewCell() <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UIImageView *customImageView;
 @property (nonatomic,strong) UIPopoverController *popover;
+@property (nonatomic,strong) UILabel *myTextLabel;
 @property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
 @end
 
@@ -34,6 +35,10 @@
 	self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
 	if (self) {
 		self.detailTextLabel.hidden = YES;
+		self.textLabel.hidden = YES;
+		self.myTextLabel = [UILabel new];
+		[self.myTextLabel setFont:[UIFont systemFontOfSize:14]];
+		[self.contentView addSubview:self.myTextLabel];
 		self.customImageView = [[UIImageView alloc] init];
 		[self.customImageView setUserInteractionEnabled:YES];
 		[self.contentView addSubview:self.customImageView];
@@ -46,8 +51,8 @@
 
 - (void)installConstraints{
 	self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
-	self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
 	self.customImageView.translatesAutoresizingMaskIntoConstraints = NO;
+	self.myTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	// ContentView constraints
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:10]];
@@ -56,10 +61,10 @@
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1 constant:-10]];
 	
 	// TextLabel contraints
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:.35 constant:0]];
+	[self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.myTextLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+	[self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.myTextLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+	[self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.myTextLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+	[self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.myTextLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:.35 constant:0]];
 	
 	// Detail constraints
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.customImageView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0f]]; // Aspect ratio constraint
@@ -124,7 +129,7 @@
 - (void)bindViewModel:(RCRestTableViewCellViewModel*)viewModel{
 	[super bindViewModel:viewModel];
 	self.viewModel = viewModel;
-	self.textLabel.text = viewModel.title;
+	self.myTextLabel.text = viewModel.title;
 	[self.customImageView setImage:viewModel.value];
 	[self.customImageView setBackgroundColor:[UIColor grayColor]];
 	
