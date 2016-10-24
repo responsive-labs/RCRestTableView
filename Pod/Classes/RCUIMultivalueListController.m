@@ -72,6 +72,7 @@
 	NSString *key = [[row allKeys] firstObject];
 
 	self.selectedKey = key;
+	[self.delegate RCUIMultivalueListController:self newKeySelected:key];
 	[self.tableView reloadData];
 }
 

@@ -21,11 +21,10 @@
 
 #import "RCMultivalueCell.h"
 #import "NSValue+RCRestTableVIew.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCUIMultivalueListController.h"
 #import "UIView+RCRestTableView.h"
 
-@interface RCMultivalueCell()
+@interface RCMultivalueCell() <RCUIMultivalueListControllerDelegate>
 @property (nonatomic,strong) NSArray *values;
 @property (nonatomic,strong) NSDictionary *helper;
 @property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
@@ -39,13 +38,14 @@
 	self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
 	if (self) {
 		self.values = @[];
-		[self bindReactiveSignals];
 		self.multivalueLabel = [[UITextField alloc] init];
 		[self.multivalueLabel setEnabled:NO];
 		[self.multivalueLabel setTextAlignment:NSTextAlignmentLeft];
 		self.multivalueLabel.font = [UIFont systemFontOfSize:13.0];
 		[self.contentView addSubview:self.multivalueLabel];
 		[self installConstraints];
+		UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapIntercepted:)];
+		[self.contentView addGestureRecognizer:tap];
 	}
 	return self;
 }
@@ -74,38 +74,31 @@
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.multivalueLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-20]];
 }
 
-- (void)bindReactiveSignals{
-	[[[[self rac_signalForSelector:@selector(touchesEnded:withEvent:)] reduceEach:^(NSSet *touches, UIEvent *event) {
-		return [touches anyObject];
-	}]distinctUntilChanged] subscribeNext:^(id x) {
-		RCUIMultivalueListController *listController = [[RCUIMultivalueListController alloc] initWithValues:self.values selectedKey:self.viewModel.value];
-		
-		// If is an iPad display the view in a popover
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
-			self.popover = [[UIPopoverController alloc] initWithContentViewController:listController];
-			[self.popover presentPopoverFromRect:self.frame
-										  inView:self.tableView
-						permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
-										animated:YES];
-		}else{
-			UINavigationController *controller = [[self.tableView parentViewController] navigationController];
-			if (!controller || ![controller isKindOfClass:[UINavigationController class]]){
-#if DEBUG
-				NSLog(@"[RCRESTTABLEVIEW] Seems that your TableView is not in a UINavigationController");
-#endif
-				return;
-			}
-			[controller pushViewController:listController animated:YES];
-		}
+- (void)RCUIMultivalueListController:(RCUIMultivalueListController*)controller newKeySelected:(NSString*)key{
+	[self.viewModel setValue:key];
+	[self.multivalueLabel setText:[self.helper valueForKey:key]];
+}
 
-		@weakify(self)
-		[[RACObserve(listController, selectedKey) takeUntil:[listController rac_willDeallocSignal]] subscribeNext:^(NSString *newValue) {
-			@strongify(self)
-			if (!newValue) return;
-			[self.viewModel setValue:newValue];
-			[self.multivalueLabel setText:[self.helper valueForKey:newValue]];
-		}];
-	}];
+- (void)tapIntercepted:(UITapGestureRecognizer*)tap{
+	RCUIMultivalueListController *listController = [[RCUIMultivalueListController alloc] initWithValues:self.values selectedKey:self.viewModel.value];
+	listController.delegate = self;
+	// If is an iPad display the view in a popover
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+		self.popover = [[UIPopoverController alloc] initWithContentViewController:listController];
+		[self.popover presentPopoverFromRect:self.frame
+									  inView:self.tableView
+					permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
+									animated:YES];
+	}else{
+		UINavigationController *controller = [[self.tableView parentViewController] navigationController];
+		if (!controller || ![controller isKindOfClass:[UINavigationController class]]){
+#if DEBUG
+			NSLog(@"[RCRESTTABLEVIEW] Seems that your TableView is not in a UINavigationController");
+#endif
+			return;
+		}
+		[controller pushViewController:listController animated:YES];
+	}
 }
 
 - (void)bindViewModel:(RCRestTableViewCellViewModel*)viewModel{

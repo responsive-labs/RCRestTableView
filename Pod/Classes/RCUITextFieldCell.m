@@ -20,11 +20,11 @@
 // THE SOFTWARE.
 
 #import "RCUITextFieldCell.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSValue+RCRestTableVIew.h"
 
 @interface RCUITextFieldCell()
 @property (nonatomic,strong) UITextField *textField;
+@property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
 @end
 
 @implementation RCUITextFieldCell
@@ -37,6 +37,7 @@
 		[self.contentView addSubview:self.textField];
 		[self installConstraints];
 		self.textField.font = [UIFont systemFontOfSize:13.0];
+		[self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 	}
 	return self;
 }
@@ -67,6 +68,7 @@
 
 - (void)bindViewModel:(RCRestTableViewCellViewModel*)viewModel{
 	[super bindViewModel:viewModel];
+	self.viewModel = viewModel;
 	self.textLabel.text = viewModel.title;
 	self.textField.text = viewModel.value;
 	
@@ -80,9 +82,12 @@
 		[value setAsArgumentForInvocation:inv atIndex:2];
 		[inv invoke];
 	}
-	
-	// Bind textfield with the view model
-	RAC(viewModel,value) = [[self.textField rac_textSignal] takeUntil:[self rac_prepareForReuseSignal]];
+}
+
+- (void)textFieldDidChange:(id)sender{
+	if (self.viewModel){
+		self.viewModel.value = self.textField.text;
+	}
 }
 
 @end

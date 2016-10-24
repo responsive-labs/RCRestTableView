@@ -20,11 +20,11 @@
 // THE SOFTWARE.
 
 #import "RCUISwitchCell.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSValue+RCRestTableVIew.h"
 
 @interface RCUISwitchCell()
 @property (nonatomic,strong) UISwitch *customSwitch;
+@property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
 @end
 
 @implementation RCUISwitchCell
@@ -36,6 +36,7 @@
 		self.customSwitch = [[UISwitch alloc] init];
 		[self.contentView addSubview:self.customSwitch];
 		[self installConstraints];
+		[self.customSwitch addTarget:self action:@selector(switchStateDidChange:) forControlEvents:UIControlEventValueChanged];
 	}
 	return self;
 }
@@ -67,6 +68,7 @@
 	[super bindViewModel:viewModel];
 	self.textLabel.text = viewModel.title;
 	[self.customSwitch setOn:[viewModel.value boolValue]];
+	self.viewModel = viewModel;
 
 	for (NSString *selectorString in [viewModel.typeProperties allKeys]) {
 		SEL selector = NSSelectorFromString(selectorString);
@@ -77,6 +79,12 @@
 		[inv setTarget:self.customSwitch];
 		[value setAsArgumentForInvocation:inv atIndex:2];
 		[inv invoke];
+	}
+}
+
+- (void)switchStateDidChange:(id)sender{
+	if (self.viewModel){
+		self.viewModel.value = @(self.customSwitch.isOn);
 	}
 }
 

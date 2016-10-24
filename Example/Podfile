@@ -1,11 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target :RCRestTableView, :exclusive => true do
+target 'RCRestTableView' do
   pod "RCRestTableView", :path => "../"
-end
 
-target :Tests, :exclusive => true do
-	pod "RCRestTableView", :path => "../"
-	pod 'Specta', '~> 0.5'
+  target "Tests" do
+    inherit! :search_paths
+    pod 'Specta', '~> 0.5'
 	pod 'Expecta'
+  end
 end

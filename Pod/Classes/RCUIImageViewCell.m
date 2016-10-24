@@ -19,7 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 #import "RCUIImageViewCell.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "NSValue+RCRestTableVIew.h"
 
 @interface RCUIImageViewCell() <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -43,8 +42,8 @@
 		[self.customImageView setUserInteractionEnabled:YES];
 		[self.contentView addSubview:self.customImageView];
 		[self installConstraints];
-		[self bindReactiveSignals];
-		
+		UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapIntercepted:)];
+		[self.contentView addGestureRecognizer:tap];
 	}
 	return self;
 }
@@ -73,57 +72,57 @@
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.customImageView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:-20]];
 }
 
-- (void)bindReactiveSignals{
-	@weakify(self)
-	[[[[self rac_signalForSelector:@selector(touchesEnded:withEvent:)] reduceEach:^(NSSet *touches, UIEvent *event) {
-		return [touches anyObject];
-	}]distinctUntilChanged] subscribeNext:^(id x) {
-		@strongify(self)
-		UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo",@"Choose Photo", nil];
-		[[[actionSheet rac_buttonClickedSignal] deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(NSNumber *clickedButton) {
-			if ([clickedButton integerValue] == 2) return; // Cancel button
-			if ([clickedButton integerValue] == 0 && ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-				[[[UIAlertView alloc] initWithTitle:nil message:@"Camera Not Available on this device" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
-				return;
-			}
-			UIImagePickerController *imagePickerController = [UIImagePickerController new];
-			imagePickerController.sourceType = [clickedButton integerValue] == 0 ? UIImagePickerControllerSourceTypeCamera : UIImagePickerControllerSourceTypePhotoLibrary;
-			imagePickerController.allowsEditing=YES;
-			
-			@weakify(self,imagePickerController)
-			[[imagePickerController rac_imageSelectedSignal] subscribeNext:^(NSDictionary *info) {
-				@strongify(self,imagePickerController)
-				UIImage *newImage = [info valueForKey:UIImagePickerControllerEditedImage];
-				[self.customImageView setImage:newImage];
-				// Close the picker
-				[imagePickerController.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
-				if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-					[self.popover dismissPopoverAnimated:YES];
-				
-				// Update the View Model
-				if (self.viewModel)
-					self.viewModel.value = newImage;
-			} completed:^{
-				@strongify(imagePickerController)
-				[imagePickerController.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
-			}];
-			
-			// Dislpay the picker
-			if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
-				imagePickerController.modalPresentationStyle = UIModalPresentationPopover;
-				self.popover = [[UIPopoverController alloc] initWithContentViewController:imagePickerController];
-				[self.popover presentPopoverFromRect:self.frame
-											  inView:self.tableView
-							permittedArrowDirections:UIPopoverArrowDirectionAny
-											animated:YES];
-			}else{
-				UIViewController *controller = self.window.rootViewController;
-				imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-				[controller presentViewController:imagePickerController animated:YES completion:nil];
-			}
-		}];
-		[actionSheet showInView:self];
-	}];
+- (void)tapIntercepted:(UITapGestureRecognizer*)tap{
+	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+	[alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+	[alertController addAction:[UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+		[self showPickerController:UIImagePickerControllerSourceTypeCamera];
+	}]];
+	[alertController addAction:[UIAlertAction actionWithTitle:@"Choose Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+		[self showPickerController:UIImagePickerControllerSourceTypePhotoLibrary];
+	}]];
+	
+	[[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)showPickerController:(UIImagePickerControllerSourceType)type{
+	if (type == UIImagePickerControllerSourceTypeCamera && ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+		[[[UIAlertView alloc] initWithTitle:nil message:@"Camera Not Available on this device" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+		return;
+	}
+	
+	UIImagePickerController *imagePickerController = [UIImagePickerController new];
+	imagePickerController.sourceType = type;
+	imagePickerController.allowsEditing=YES;
+	imagePickerController.delegate = self;
+
+	// Dislpay the picker
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+		imagePickerController.modalPresentationStyle = UIModalPresentationPopover;
+		self.popover = [[UIPopoverController alloc] initWithContentViewController:imagePickerController];
+		[self.popover presentPopoverFromRect:self.frame
+									  inView:self.tableView
+					permittedArrowDirections:UIPopoverArrowDirectionAny
+									animated:YES];
+	}else{
+		UIViewController *controller = self.window.rootViewController;
+		imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+		[controller presentViewController:imagePickerController animated:YES completion:nil];
+	}
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	[picker.presentingViewController dismissModalViewControllerAnimated:YES];
+	UIImage *newImage = [info valueForKey:UIImagePickerControllerEditedImage];
+	[self.customImageView setImage:newImage];
+	// Close the picker
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+		[self.popover dismissPopoverAnimated:YES];
+	}
+	// Update the View Model
+	if (self.viewModel){
+		self.viewModel.value = newImage;
+	}
 }
 
 - (void)bindViewModel:(RCRestTableViewCellViewModel*)viewModel{

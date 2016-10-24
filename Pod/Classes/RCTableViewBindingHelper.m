@@ -20,7 +20,6 @@
 // THE SOFTWARE.
 
 #import "RCTableViewBindingHelper.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCReactiveView.h"
 #import "RCRestTableViewViewModel.h"
 #import "RCRestTableViewCellAvailable.h"

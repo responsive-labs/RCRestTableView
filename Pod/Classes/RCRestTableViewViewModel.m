@@ -22,7 +22,6 @@
 #import "RCRestTableViewViewModel.h"
 #import "RCRestTableViewKeys.h"
 #import "RCRestTableStructure.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCRestTableViewCellViewModel.h"
 #import "RCRestTableViewCellAvailable.h"
 #import "RCRestTableViewTypes.h"
