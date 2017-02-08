@@ -21,10 +21,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCUIMultivalueListController : UITableViewController
+@protocol RCUIMultivalueListControllerDelegate;
 
+@interface RCUIMultivalueListController : UITableViewController
+@property (nonatomic,weak) id<RCUIMultivalueListControllerDelegate> delegate;
 @property (nonatomic,strong) NSString *selectedKey;
 
 - (instancetype)initWithValues:(NSArray*)values selectedKey:(NSString*)selectedkey;
 
+@end
+
+
+@protocol RCUIMultivalueListControllerDelegate <NSObject>
+- (void)RCUIMultivalueListController:(RCUIMultivalueListController*)controller newKeySelected:(NSString*)key;
 @end
