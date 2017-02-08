@@ -1,17 +1,17 @@
 //
-//  SZTextView.m
-//  SZTextView
+//  RCSZTextView.m
+//  RCSZTextView
 //
 //  Created by glaszig on 14.03.13.
 //  Copyright (c) 2013 glaszig. All rights reserved.
 //
 
-#import "SZTextView.h"
+#import "RCSZTextView.h"
 
 #define HAS_TEXT_CONTAINER [self respondsToSelector:@selector(textContainer)]
 #define HAS_TEXT_CONTAINER_INSETS(x) [(x) respondsToSelector:@selector(textContainerInset)]
 
-@interface SZTextView ()
+@interface RCSZTextView ()
 @property (strong, nonatomic) UITextView *_placeholderTextView;
 @end
 
@@ -25,7 +25,7 @@ static NSString * const kLineFragmentPaddingKey = @"lineFragmentPadding";
 static NSString * const kTextContainerInsetKey = @"textContainerInset";
 static NSString * const kTextAlignmentKey = @"textAlignment";
 
-@implementation SZTextView
+@implementation RCSZTextView
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {

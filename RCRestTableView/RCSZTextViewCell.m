@@ -21,10 +21,10 @@
 
 #import "RCSZTextViewCell.h"
 #import "NSValue+RCRestTableVIew.h"
-#import "SZTextView.h"
+#import "RCSZTextView.h"
 
 @interface RCSZTextViewCell() <UITextViewDelegate>
-@property (nonatomic,strong) SZTextView *textView;
+@property (nonatomic,strong) RCSZTextView *textView;
 @property (nonatomic,weak) RCRestTableViewCellViewModel *viewModel;
 @end
 
@@ -33,7 +33,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
 	self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 	if (self) {
-		self.textView = [[SZTextView alloc] init];
+		self.textView = [[RCSZTextView alloc] init];
 		[self.textLabel removeFromSuperview];
 		[self.detailTextLabel removeFromSuperview];
 		[self.contentView addSubview:self.textView];

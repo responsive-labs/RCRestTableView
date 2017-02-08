@@ -47,8 +47,6 @@
 		5A3551F91E4B73D600484348 /* UIImage+RCRestTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3551D11E4B73D600484348 /* UIImage+RCRestTableView.m */; };
 		5A3551FA1E4B73D600484348 /* UIView+RCRestTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3551D21E4B73D600484348 /* UIView+RCRestTableView.h */; };
 		5A3551FB1E4B73D600484348 /* UIView+RCRestTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3551D31E4B73D600484348 /* UIView+RCRestTableView.m */; };
-		5A3551FE1E4B744D00484348 /* SZTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3551FC1E4B744D00484348 /* SZTextView.h */; };
-		5A3551FF1E4B744D00484348 /* SZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3551FD1E4B744D00484348 /* SZTextView.m */; };
 		5A3552041E4B757400484348 /* RCExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3552011E4B757400484348 /* RCExampleViewController.m */; };
 		5A3552051E4B757400484348 /* RCRestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3552031E4B757400484348 /* RCRestTableViewController.m */; };
 		5A3552071E4B759300484348 /* RCRestTableView.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A3552061E4B759200484348 /* RCRestTableView.json */; };
@@ -60,6 +58,8 @@
 		5A7A02501E4B718A001590C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A024F1E4B718A001590C2 /* Assets.xcassets */; };
 		5A7A02661E4B71B5001590C2 /* RCRestTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */; };
 		5A7A02671E4B71B5001590C2 /* RCRestTableView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5AB04D3B1E4B7E200072E490 /* RCSZTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AB04D391E4B7E200072E490 /* RCSZTextView.h */; };
+		5AB04D3C1E4B7E200072E490 /* RCSZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04D3A1E4B7E200072E490 /* RCSZTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,8 +127,6 @@
 		5A3551D11E4B73D600484348 /* UIImage+RCRestTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RCRestTableView.m"; sourceTree = "<group>"; };
 		5A3551D21E4B73D600484348 /* UIView+RCRestTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RCRestTableView.h"; sourceTree = "<group>"; };
 		5A3551D31E4B73D600484348 /* UIView+RCRestTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RCRestTableView.m"; sourceTree = "<group>"; };
-		5A3551FC1E4B744D00484348 /* SZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTextView.h; sourceTree = "<group>"; };
-		5A3551FD1E4B744D00484348 /* SZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTextView.m; sourceTree = "<group>"; };
 		5A3552001E4B757400484348 /* RCExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCExampleViewController.h; sourceTree = "<group>"; };
 		5A3552011E4B757400484348 /* RCExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCExampleViewController.m; sourceTree = "<group>"; };
 		5A3552021E4B757400484348 /* RCRestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRestTableViewController.h; sourceTree = "<group>"; };
@@ -145,6 +143,8 @@
 		5A7A02541E4B718A001590C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RCRestTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7A02621E4B71B5001590C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AB04D391E4B7E200072E490 /* RCSZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSZTextView.h; sourceTree = "<group>"; };
+		5AB04D3A1E4B7E200072E490 /* RCSZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSZTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +215,8 @@
 		5A7A02601E4B71B5001590C2 /* RCRestTableView */ = {
 			isa = PBXGroup;
 			children = (
-				5A3551FC1E4B744D00484348 /* SZTextView.h */,
-				5A3551FD1E4B744D00484348 /* SZTextView.m */,
+				5AB04D391E4B7E200072E490 /* RCSZTextView.h */,
+				5AB04D3A1E4B7E200072E490 /* RCSZTextView.m */,
 				5A3551AC1E4B73D600484348 /* NSDictionary+RCRestTableView.h */,
 				5A3551AD1E4B73D600484348 /* NSDictionary+RCRestTableView.m */,
 				5A3551AE1E4B73D600484348 /* NSString+RCRestTableView.h */,
@@ -274,8 +274,8 @@
 				5A3551E81E4B73D600484348 /* RCRestTableViewViewModel.h in Headers */,
 				5A3551EC1E4B73D600484348 /* RCTableViewBindingHelper.h in Headers */,
 				5A3551D41E4B73D600484348 /* NSDictionary+RCRestTableView.h in Headers */,
+				5AB04D3B1E4B7E200072E490 /* RCSZTextView.h in Headers */,
 				5A3551D81E4B73D600484348 /* NSValue+RCRestTableVIew.h in Headers */,
-				5A3551FE1E4B744D00484348 /* SZTextView.h in Headers */,
 				5A3551D61E4B73D600484348 /* NSString+RCRestTableView.h in Headers */,
 				5A3551DA1E4B73D600484348 /* RCMultivalueCell.h in Headers */,
 				5A3551DF1E4B73D600484348 /* RCRestTableView.h in Headers */,
@@ -426,9 +426,9 @@
 				5A3551F71E4B73D600484348 /* RCUITextFieldCell.m in Sources */,
 				5A3551D51E4B73D600484348 /* NSDictionary+RCRestTableView.m in Sources */,
 				5A3551F11E4B73D600484348 /* RCUILabelCell.m in Sources */,
-				5A3551FF1E4B744D00484348 /* SZTextView.m in Sources */,
 				5A3551E91E4B73D600484348 /* RCRestTableViewViewModel.m in Sources */,
 				5A3551EB1E4B73D600484348 /* RCSZTextViewCell.m in Sources */,
+				5AB04D3C1E4B7E200072E490 /* RCSZTextView.m in Sources */,
 				5A3551EF1E4B73D600484348 /* RCUIImageViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
