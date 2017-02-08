@@ -58,7 +58,6 @@
 		5A7A02451E4B7189001590C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A02441E4B7189001590C2 /* main.m */; };
 		5A7A02481E4B7189001590C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A02471E4B7189001590C2 /* AppDelegate.m */; };
 		5A7A02501E4B718A001590C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A024F1E4B718A001590C2 /* Assets.xcassets */; };
-		5A7A02631E4B71B5001590C2 /* RCRestTableView_old.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A7A02611E4B71B5001590C2 /* RCRestTableView_old.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7A02661E4B71B5001590C2 /* RCRestTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */; };
 		5A7A02671E4B71B5001590C2 /* RCRestTableView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -145,7 +144,6 @@
 		5A7A024F1E4B718A001590C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A7A02541E4B718A001590C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RCRestTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A7A02611E4B71B5001590C2 /* RCRestTableView_old.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCRestTableView_old.h; sourceTree = "<group>"; };
 		5A7A02621E4B71B5001590C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,7 +217,6 @@
 			children = (
 				5A3551FC1E4B744D00484348 /* SZTextView.h */,
 				5A3551FD1E4B744D00484348 /* SZTextView.m */,
-				5A7A02611E4B71B5001590C2 /* RCRestTableView_old.h */,
 				5A3551AC1E4B73D600484348 /* NSDictionary+RCRestTableView.h */,
 				5A3551AD1E4B73D600484348 /* NSDictionary+RCRestTableView.m */,
 				5A3551AE1E4B73D600484348 /* NSString+RCRestTableView.h */,
@@ -277,7 +274,6 @@
 				5A3551E81E4B73D600484348 /* RCRestTableViewViewModel.h in Headers */,
 				5A3551EC1E4B73D600484348 /* RCTableViewBindingHelper.h in Headers */,
 				5A3551D41E4B73D600484348 /* NSDictionary+RCRestTableView.h in Headers */,
-				5A7A02631E4B71B5001590C2 /* RCRestTableView_old.h in Headers */,
 				5A3551D81E4B73D600484348 /* NSValue+RCRestTableVIew.h in Headers */,
 				5A3551FE1E4B744D00484348 /* SZTextView.h in Headers */,
 				5A3551D61E4B73D600484348 /* NSString+RCRestTableView.h in Headers */,
