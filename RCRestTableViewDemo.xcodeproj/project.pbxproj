@@ -53,11 +53,11 @@
 		5A3552051E4B757400484348 /* RCRestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3552031E4B757400484348 /* RCRestTableViewController.m */; };
 		5A3552071E4B759300484348 /* RCRestTableView.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A3552061E4B759200484348 /* RCRestTableView.json */; };
 		5A3552091E4B76AC00484348 /* RCRestTableView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3552081E4B76AC00484348 /* RCRestTableView.plist */; };
+		5A3552111E4B791400484348 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A35520D1E4B791400484348 /* LaunchScreen.storyboard */; };
+		5A3552121E4B791400484348 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A35520F1E4B791400484348 /* Main.storyboard */; };
 		5A7A02451E4B7189001590C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A02441E4B7189001590C2 /* main.m */; };
 		5A7A02481E4B7189001590C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A02471E4B7189001590C2 /* AppDelegate.m */; };
-		5A7A024E1E4B7189001590C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A024C1E4B7189001590C2 /* Main.storyboard */; };
 		5A7A02501E4B718A001590C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A024F1E4B718A001590C2 /* Assets.xcassets */; };
-		5A7A02531E4B718A001590C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7A02511E4B718A001590C2 /* LaunchScreen.storyboard */; };
 		5A7A02631E4B71B5001590C2 /* RCRestTableView_old.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A7A02611E4B71B5001590C2 /* RCRestTableView_old.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7A02661E4B71B5001590C2 /* RCRestTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */; };
 		5A7A02671E4B71B5001590C2 /* RCRestTableView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -136,13 +136,13 @@
 		5A3552031E4B757400484348 /* RCRestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRestTableViewController.m; sourceTree = "<group>"; };
 		5A3552061E4B759200484348 /* RCRestTableView.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RCRestTableView.json; sourceTree = "<group>"; };
 		5A3552081E4B76AC00484348 /* RCRestTableView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RCRestTableView.plist; sourceTree = "<group>"; };
+		5A35520E1E4B791400484348 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5A3552101E4B791400484348 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A7A02401E4B7189001590C2 /* RCRestTableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCRestTableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7A02441E4B7189001590C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5A7A02461E4B7189001590C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A7A02471E4B7189001590C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5A7A024D1E4B7189001590C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A7A024F1E4B718A001590C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5A7A02521E4B718A001590C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A7A02541E4B718A001590C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A7A025F1E4B71B5001590C2 /* RCRestTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RCRestTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7A02611E4B71B5001590C2 /* RCRestTableView_old.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCRestTableView_old.h; sourceTree = "<group>"; };
@@ -195,11 +195,11 @@
 				5A3552011E4B757400484348 /* RCExampleViewController.m */,
 				5A3552021E4B757400484348 /* RCRestTableViewController.h */,
 				5A3552031E4B757400484348 /* RCRestTableViewController.m */,
+				5A35520D1E4B791400484348 /* LaunchScreen.storyboard */,
+				5A35520F1E4B791400484348 /* Main.storyboard */,
 				5A3552061E4B759200484348 /* RCRestTableView.json */,
 				5A3552081E4B76AC00484348 /* RCRestTableView.plist */,
-				5A7A024C1E4B7189001590C2 /* Main.storyboard */,
 				5A7A024F1E4B718A001590C2 /* Assets.xcassets */,
-				5A7A02511E4B718A001590C2 /* LaunchScreen.storyboard */,
 				5A7A02541E4B718A001590C2 /* Info.plist */,
 				5A7A02431E4B7189001590C2 /* Supporting Files */,
 			);
@@ -382,11 +382,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A7A02531E4B718A001590C2 /* LaunchScreen.storyboard in Resources */,
 				5A3552091E4B76AC00484348 /* RCRestTableView.plist in Resources */,
+				5A3552121E4B791400484348 /* Main.storyboard in Resources */,
+				5A3552111E4B791400484348 /* LaunchScreen.storyboard in Resources */,
 				5A7A02501E4B718A001590C2 /* Assets.xcassets in Resources */,
 				5A3552071E4B759300484348 /* RCRestTableView.json in Resources */,
-				5A7A024E1E4B7189001590C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,20 +448,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5A7A024C1E4B7189001590C2 /* Main.storyboard */ = {
+		5A35520D1E4B791400484348 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5A7A024D1E4B7189001590C2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5A7A02511E4B718A001590C2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5A7A02521E4B718A001590C2 /* Base */,
+				5A35520E1E4B791400484348 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5A35520F1E4B791400484348 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A3552101E4B791400484348 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -112,7 +112,7 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	[picker.presentingViewController dismissModalViewControllerAnimated:YES];
+	[picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 	UIImage *newImage = [info valueForKey:UIImagePickerControllerEditedImage];
 	[self.customImageView setImage:newImage];
 	// Close the picker
