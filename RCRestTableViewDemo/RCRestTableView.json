@@ -1,0 +1,71 @@
+{
+	"sections": [
+		{
+	 		"section_header" : "User profile",
+	 		"section_footer" : "Update this section with your personal info",
+	 		"rows" : [
+	 			{
+				   "type" : "UIImageView",
+				   "title" : "Profile photo",
+				   "value" : "emptyImage",
+				   "AccessoryType" :	1,
+				   "height" : 80,
+				   "identifier" : "profileImage",
+			   },
+			   {
+				   "type" : "UILabel",
+				   "title" : "Email",
+				   "AccessoryType" :	0,
+				   "value" : "serpicoluca@gmail.com",
+				   "UILabel.adjustsFontSizeToFitWidth" : 1
+			   },
+			   {
+				   "type" : "UITextField",
+				   "title" : "First Name",
+				   "AccessoryType" :	0,
+				   "UITextField.placeholder" : "First Name",
+				   "UITextField.ClearButtonMode" : 1,
+				   "identifier" : "firstName",
+			   },
+			   {
+				   "type" : "UITextField",
+				   "title" : "Last Name",
+				   "AccessoryType" :	0,
+				   "UITextField.placeholder" : "Last Name",
+				   "UITextField.ClearButtonMode" : 1,
+				   "identifier" : "lastName",
+			   },
+			]
+		},
+		{
+			"section_header" : "Profile settings",
+			"rows" : [
+				{
+				   "type" : "UISwitch",
+				   "title" : "Public profile",
+				   "AccessoryType" :	0,
+				   "value" : 1,
+				   "identifier" : "publicProfile",
+			   },
+			   {
+				   "type" : "Multivalue",
+				   "title" : "Type",
+				   "AccessoryType" :	0,
+				   "value" : "obj",
+				   "values" : [
+				   		{"obj" : "Objective-C"},
+				   		{"swf" : "Swift"}
+				   ],
+				   "identifier" : "type",
+			   },
+			   {
+				   "type" : "SZTextView",
+				   "AccessoryType" :	0,
+				   "SZTextView.placeholder" : "Text view",
+				   "identifier" : "TextView",
+				   "height" : 80,
+			   },
+			]
+		}
+	]
+}
