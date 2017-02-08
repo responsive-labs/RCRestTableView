@@ -1,6 +1,0 @@
-[
-  "-workspace", "Example/RCRestTableView.xcworkspace",
-  "-scheme", "RCRestTableView-Example",
-  "-configuration", "Debug",
-  "-sdk", "iphonesimulator",
-]
